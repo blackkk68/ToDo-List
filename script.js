@@ -98,11 +98,9 @@ function addMenu(points, newTask) {
         }
 
         if (window.matchMedia('(max-width: 480px)').matches && !taskMenu.classList.contains("hidden")) {
-            newTask.style.width = "60%";
-            points.style.left = "77%";
+            newTask.style.width = "65%";
         } else if (window.matchMedia('(max-width: 480px)').matches && taskMenu.classList.contains("hidden")) {
-            newTask.style.width = "82%";
-            points.style.left = "82%";
+            newTask.style.width = "85%";
         }
 
         newTask.append(taskMenu);
@@ -149,6 +147,14 @@ function makeTaskDone(newTask) {
             markAsDone.textContent = "Не сделано";
         } else {
             markAsDone.textContent = "Сделано";
+        }
+
+        if (window.matchMedia('(max-width: 768px)').matches && taskMenu.classList.contains("hidden")) {
+            newTask.style.width = "80%";
+        }
+
+        if (window.matchMedia('(max-width: 480px)').matches && taskMenu.classList.contains("hidden")) {
+            newTask.style.width = "85%";
         }
     }
 }
