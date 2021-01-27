@@ -1,0 +1,417 @@
+html {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: url(../img/bg.png) no-repeat;
+  font-family: "Amatic SC", sans-serif;
+  letter-spacing: 0.5px;
+}
+
+body {
+  border: 2px solid #45ace6;
+  box-shadow: 0 0 5px 0 #45ace6;
+  border-radius: 35px;
+  width: 600px;
+  margin-top: 30px;
+}
+
+header {
+  background-color: #B5DEF5;
+  padding: 1px;
+  border-top-right-radius: 35px;
+  border-top-left-radius: 35px;
+}
+header h1 {
+  text-align: center;
+  text-transform: uppercase;
+}
+@media (max-width: 1920px) {
+  header h1 {
+    font-size: calc((50 * 0.7px) + (50 * 0.3) * (100vw / 1920));
+  }
+}
+@media (min-width: 1920px) {
+  header h1 {
+    font-size: 50px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.done {
+  text-decoration: line-through;
+  background-color: #cdd2d6 !important;
+}
+
+.filters {
+  border-bottom: 1px solid #45ace6;
+  display: flex;
+  justify-content: center;
+  background-color: #B5DEF5;
+}
+
+.filters .filter-container {
+  margin-bottom: 10px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filters .filter-container select {
+  font-family: inherit;
+  padding-left: 5px;
+  width: 150px;
+  height: 32px;
+  letter-spacing: 0.5px;
+  background-color: inherit;
+  border: 2px solid #45ace6;
+  -webkit-appearance: none;
+          appearance: none;
+  border-radius: 10px;
+  background-size: 25px 25px;
+  background: url("../img/arrow.png"), linear-gradient(92.8deg, #9BC7F0 1.23%, #B8D8F6 88.48%);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 90% 50%;
+}
+@media (max-width: 1920px) {
+  .filters .filter-container select {
+    font-size: calc((20 * 0.7px) + (20 * 0.3) * (100vw / 1920));
+  }
+}
+@media (min-width: 1920px) {
+  .filters .filter-container select {
+    font-size: 20px;
+  }
+}
+
+.filters .filter-container select:hover {
+  cursor: pointer;
+  background-color: #b8dafa;
+}
+
+@media (max-width: 1920px) {
+  .filters .filter-container option {
+    font-size: calc((14 * 0.7px) + (14 * 0.3) * (100vw / 1920));
+  }
+}
+@media (min-width: 1920px) {
+  .filters .filter-container option {
+    font-size: 14px;
+  }
+}
+
+.tasks .main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.tasks .main-container .task-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e2f2fb;
+  margin: 0px;
+  padding-top: 25px;
+  padding-bottom: 10px;
+}
+
+.tasks .main-container .task-list li {
+  list-style: upper-roman;
+  border: 2px solid #45ace6;
+  border-radius: 20px;
+  padding: 15px 35px;
+  margin-bottom: 15px;
+  width: 55%;
+  height: auto;
+  word-wrap: break-word;
+  position: relative;
+}
+@media (max-width: 1920px) {
+  .tasks .main-container .task-list li {
+    font-size: calc((32 * 0.7px) + (32 * 0.3) * (100vw / 1920));
+  }
+}
+@media (min-width: 1920px) {
+  .tasks .main-container .task-list li {
+    font-size: 32px;
+  }
+}
+
+.tasks .main-container .task-list li .points {
+  position: absolute;
+  left: 85%;
+  padding: 20px;
+  color: black;
+  background: url("../img/points.svg") no-repeat 100% 100%;
+  cursor: pointer;
+}
+
+.tasks .main-container .task-list .to-do {
+  background-color: #FEF6DB;
+}
+
+.tasks .main-container .task-list .better-to-do {
+  background-color: #7DE2D0;
+}
+
+.tasks .main-container .task-list .necessary-to-do {
+  background-color: #E87BB5;
+}
+
+.tasks .main-container .task-menu {
+  width: 75px;
+  height: auto;
+  border: 2px solid #45ace6;
+  border-radius: 15px;
+  background-color: #b8dafa;
+  position: absolute;
+  left: 101%;
+  z-index: 1;
+  bottom: 0px;
+}
+
+.tasks .main-container .task-menu ul {
+  padding: 0;
+  margin: 0;
+}
+
+.tasks .main-container .task-menu li {
+  border: none;
+  border-radius: 0;
+  list-style: none;
+  width: 60px;
+  padding: 5px 5px 5px 10px;
+  border-bottom: 1px solid #45ace6;
+  cursor: pointer;
+  margin: 0;
+}
+@media (max-width: 1920px) {
+  .tasks .main-container .task-menu li {
+    font-size: calc((18 * 0.7px) + (18 * 0.3) * (100vw / 1920));
+  }
+}
+@media (min-width: 1920px) {
+  .tasks .main-container .task-menu li {
+    font-size: 18px;
+  }
+}
+
+.tasks .main-container .task-menu li:first-child {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.tasks .main-container .task-menu li:last-child {
+  border: none;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.tasks .main-container .task-menu li:hover {
+  background-color: #abbdd2;
+}
+
+.footer form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 35px;
+  padding-top: 25px;
+  border-top: 1px solid #45ace6;
+  background-color: #B5DEF5;
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 35px;
+}
+@media (max-width: 1920px) {
+  .footer form {
+    font-size: calc((24 * 0.7px) + (24 * 0.3) * (100vw / 1920));
+  }
+}
+@media (min-width: 1920px) {
+  .footer form {
+    font-size: 24px;
+  }
+}
+
+.footer form fieldset {
+  width: 85%;
+  display: flex;
+  gap: 5%;
+  border-radius: 20px;
+  border: 2px solid #45ace6;
+}
+
+@media (max-width: 1920px) {
+  .footer form legend {
+    font-size: calc((28 * 0.7px) + (28 * 0.3) * (100vw / 1920));
+  }
+}
+@media (min-width: 1920px) {
+  .footer form legend {
+    font-size: 28px;
+  }
+}
+
+.footer form label {
+  border: 1px solid #45ace6;
+  border-radius: 15px;
+  padding: 10px 15px;
+  flex: 1 1;
+  text-align: center;
+  cursor: pointer;
+  background: linear-gradient(92.8deg, #9BC7F0 1.23%, #B8D8F6 88.48%);
+}
+
+.footer form input[type=radio] {
+  display: none;
+}
+
+.footer form input[type=radio]:checked + label {
+  background: linear-gradient(90deg, #86A7D9 10%, #57B2E6 90%);
+}
+
+.footer form div:last-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5%;
+  padding-top: 25px;
+  width: 85%;
+}
+
+.footer form div:last-child input {
+  width: 300px;
+  height: 25px;
+  font-family: "Amatic SC", sans-serif;
+  border-radius: 10px;
+  padding-left: 15px;
+  border: 2px solid #45ace6;
+  flex: 1 1;
+}
+@media (max-width: 1920px) {
+  .footer form div:last-child input {
+    font-size: calc((20 * 0.7px) + (20 * 0.3) * (100vw / 1920));
+  }
+}
+@media (min-width: 1920px) {
+  .footer form div:last-child input {
+    font-size: 20px;
+  }
+}
+
+.footer form div:last-child button {
+  width: 100px;
+  height: 32px;
+  font-family: "Amatic SC", sans-serif;
+  border-radius: 10px;
+  border: 2px solid #45ace6;
+  background: linear-gradient(92.82deg, #7DE9D6 11.52%, #41B49F 100%);
+  margin-right: 2px;
+}
+@media (max-width: 1920px) {
+  .footer form div:last-child button {
+    font-size: calc((20 * 0.7px) + (20 * 0.3) * (100vw / 1920));
+  }
+}
+@media (min-width: 1920px) {
+  .footer form div:last-child button {
+    font-size: 20px;
+  }
+}
+
+.footer form div:last-child button:hover {
+  background-color: #abbdd2;
+  cursor: pointer;
+}
+
+@media (max-width: 1199px) {
+  body {
+    width: 550px;
+  }
+
+  .filters .filter-container select {
+    width: 120px;
+  }
+
+  .tasks .main-container .task-list li .points {
+    bottom: 13px;
+    left: 82%;
+  }
+
+  .tasks .main-container .task-menu {
+    width: 70px;
+  }
+
+  .tasks .main-container .task-menu li {
+    width: 55px;
+  }
+}
+@media (max-width: 767px) {
+  body {
+    margin-top: 10px;
+    width: 75%;
+    min-width: 470px;
+  }
+
+  .tasks .main-container .task-list {
+    align-items: flex-start;
+  }
+
+  .tasks .main-container .task-list li {
+    margin-left: 15px;
+    width: 80%;
+    padding: 10px 25px;
+  }
+
+  .tasks .main-container .task-list li .points {
+    bottom: 7px;
+    left: 85%;
+  }
+
+  .tasks .main-container .task-menu {
+    width: 60px;
+  }
+
+  .tasks .main-container .task-menu li {
+    width: 50px;
+    padding: 0;
+    margin-left: 0px;
+    padding: 3px 0 3px 10px;
+  }
+}
+@media (max-width: 480px) {
+  body {
+    margin-top: 0px;
+    width: 100%;
+    min-width: 320px;
+  }
+
+  .tasks .main-container .task-list li {
+    margin-left: -5px;
+    width: 82%;
+    padding: 7px 35px 7px 15px;
+  }
+
+  .tasks .main-container .task-list li .points {
+    bottom: 3px;
+    left: 82%;
+  }
+
+  .tasks .main-container .task-menu {
+    width: 55px;
+  }
+
+  .tasks .main-container .task-menu li {
+    width: 45px;
+    padding: 0;
+    margin-left: 0px;
+    padding: 3px 0 3px 10px;
+  }
+
+  .footer form label {
+    padding: 5px 10px;
+  }
+}

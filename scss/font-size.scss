@@ -1,0 +1,11 @@
+@mixin font($size) {
+    $layout-width: 1920;
+    $font-style: font-style;
+    @media (max-width: #{$layout-width}px) {
+        font-size: calc((#{$size} * 0.7px) + (#{$size} * 0.3) * (100vw / #{$layout-width}));
+    }
+
+    @media (min-width: #{$layout-width}px) {
+        font-size: #{$size}px;
+    }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <title>Список дел</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Список дел</h1>
+        </div>
+    </header>
+    <section class="filters">
+        <div class="filter-container">
+            <select class="importance-filter" name="importance" id="importance">
+                <option value="all" selected>Все дела</option>
+                <option value="to-do">Обычное</option>
+                <option value="better-to-do">Важное</option>
+                <option value="necessary-to-do">Обязательное</option>
+            </select>
+            <select class="sorting" name="importance" id="importance">
+                <option value="by-order" selected>По порядку</option>
+                <option value="by-importance">По важности</option>
+            </select>
+        </div>
+    </section>
+    <section class="tasks">
+        <div class="main-container">
+            <ul class="task-list"></ul>
+            <div class="task-menu hidden">
+                <ul>
+                    <li class="mark-as-done">Сделано</li>
+                    <li class="delete">Удалить</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="footer">
+        <form action="#" class="form">
+            <fieldset>
+                <legend>Важность</legend>
+                <input name="task" type="radio" id="to-do" checked>
+                <label for="to-do">Обычное</label>
+                <input name="task" type="radio" id="better-to-do">
+                <label for="better-to-do">Важное</label>
+                <input name="task" type="radio" id="necessary-to-do">
+                <label for="necessary-to-do">Обязательное</label>
+            </fieldset>
+            <div>
+                <input type="text" name="task" class="task-input" placeholder="Текст" required>
+                <button type="submit" class="publish">Записать</button>
+            </div>
+        </form>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
