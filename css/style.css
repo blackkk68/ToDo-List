@@ -371,6 +371,10 @@ header h1 {
     align-items: flex-start;
   }
 
+  .tasks .main-container .task-list .no-task-text {
+    align-self: center;
+  }
+
   .tasks .main-container .task-list li {
     margin-left: 15px;
     width: 80%;
