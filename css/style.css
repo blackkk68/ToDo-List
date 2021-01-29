@@ -16,7 +16,7 @@ body {
 }
 
 header {
-  background-color: #B5DEF5;
+  background-color: #b5def5;
   padding: 1px;
   border-top-right-radius: 35px;
   border-top-left-radius: 35px;
@@ -49,7 +49,7 @@ header h1 {
   border-bottom: 1px solid #45ace6;
   display: flex;
   justify-content: center;
-  background-color: #B5DEF5;
+  background-color: #b5def5;
 }
 
 .filters .filter-container {
@@ -71,7 +71,7 @@ header h1 {
           appearance: none;
   border-radius: 10px;
   background-size: 25px 25px;
-  background: url("../img/arrow.png"), linear-gradient(92.8deg, #9BC7F0 1.23%, #B8D8F6 88.48%);
+  background: url("../img/arrow.png"), linear-gradient(92.8deg, #9bc7f0 1.23%, #b8d8f6 88.48%);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 90% 50%;
@@ -114,8 +114,18 @@ header h1 {
   align-items: center;
   background-color: #e2f2fb;
   margin: 0px;
-  padding-top: 25px;
-  padding-bottom: 10px;
+  padding: 25px 0 10px 0;
+}
+
+@media (max-width: 1920px) {
+  .tasks .main-container .task-list .no-task-text {
+    font-size: calc((36 * 0.7px) + (36 * 0.3) * (100vw / 1920));
+  }
+}
+@media (min-width: 1920px) {
+  .tasks .main-container .task-list .no-task-text {
+    font-size: 36px;
+  }
 }
 
 .tasks .main-container .task-list li {
@@ -150,15 +160,15 @@ header h1 {
 }
 
 .tasks .main-container .task-list .to-do {
-  background-color: #FEF6DB;
+  background-color: #fef6db;
 }
 
 .tasks .main-container .task-list .better-to-do {
-  background-color: #7DE2D0;
+  background-color: #7de2d0;
 }
 
 .tasks .main-container .task-list .necessary-to-do {
-  background-color: #E87BB5;
+  background-color: #e87bb5;
 }
 
 .tasks .main-container .task-menu {
@@ -221,7 +231,7 @@ header h1 {
   padding-bottom: 35px;
   padding-top: 25px;
   border-top: 1px solid #45ace6;
-  background-color: #B5DEF5;
+  background-color: #b5def5;
   border-bottom-left-radius: 35px;
   border-bottom-right-radius: 35px;
 }
@@ -262,7 +272,7 @@ header h1 {
   flex: 1 1;
   text-align: center;
   cursor: pointer;
-  background: linear-gradient(92.8deg, #9BC7F0 1.23%, #B8D8F6 88.48%);
+  background: linear-gradient(92.8deg, #9bc7f0 1.23%, #b8d8f6 88.48%);
 }
 
 .footer form input[type=radio] {
@@ -270,7 +280,7 @@ header h1 {
 }
 
 .footer form input[type=radio]:checked + label {
-  background: linear-gradient(90deg, #86A7D9 10%, #57B2E6 90%);
+  background: linear-gradient(90deg, #86a7d9 10%, #57b2e6 90%);
 }
 
 .footer form div:last-child {
@@ -308,7 +318,7 @@ header h1 {
   font-family: "Amatic SC", sans-serif;
   border-radius: 10px;
   border: 2px solid #45ace6;
-  background: linear-gradient(92.82deg, #7DE9D6 11.52%, #41B49F 100%);
+  background: linear-gradient(92.82deg, #7de9d6 11.52%, #41b49f 100%);
   margin-right: 2px;
 }
 @media (max-width: 1920px) {
