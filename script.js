@@ -106,21 +106,25 @@ function addMenu(points, newTask) {
 
     if (window.matchMedia('(max-width: 768px)').matches && !taskMenu.classList.contains("hidden")) {
       newTask.style.width = "65%";
+      points.style.left = "83%";
     } else if (window.matchMedia('(max-width: 768px)').matches && taskMenu.classList.contains("hidden")) {
       newTask.style.width = "80%";
+      points.style.left = "86%";
     }
 
     if (window.matchMedia('(max-width: 480px)').matches && !taskMenu.classList.contains("hidden")) {
       newTask.style.width = "65%";
+      points.style.left = "81%";
     } else if (window.matchMedia('(max-width: 480px)').matches && taskMenu.classList.contains("hidden")) {
       newTask.style.width = "85%";
+      points.style.left = "84%";
     }
 
     newTask.append(taskMenu);
 
     deleteTask(newTask);
 
-    makeTaskDone(newTask);
+    makeTaskDone(newTask, points);
   });
 }
 
@@ -152,7 +156,7 @@ function deleteTask(newTask) {
 }
 
 // Пометить как сделанное
-function makeTaskDone(newTask) {
+function makeTaskDone(newTask, points) {
   let markAsDone = document.querySelector(".mark-as-done");
   markAsDone.onclick = function () {
     newTask.classList.toggle("done");
@@ -165,10 +169,12 @@ function makeTaskDone(newTask) {
 
     if (window.matchMedia('(max-width: 768px)').matches && taskMenu.classList.contains("hidden")) {
       newTask.style.width = "80%";
+      points.style.left = "86%";
     }
 
     if (window.matchMedia('(max-width: 480px)').matches && taskMenu.classList.contains("hidden")) {
       newTask.style.width = "85%";
+      points.style.left = "84%";
     }
   }
 }

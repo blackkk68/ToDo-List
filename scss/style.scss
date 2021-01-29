@@ -105,7 +105,7 @@ header {
 
 .tasks .main-container .task-list li {
     list-style: upper-roman;
-    @include font(32);
+    font-size: 32px;
     border: 2px solid $border-color;
     border-radius: 20px;
     padding: 15px 35px;
@@ -146,7 +146,7 @@ header {
     position: absolute;
     left: 101%;
     z-index: 1;
-    bottom: 0px;
+    bottom: -2px;
 }
 
 .tasks .main-container .task-menu ul {
@@ -269,6 +269,10 @@ header {
         width: 120px;
     }
 
+    .tasks .main-container .task-list li {
+        @include font(32);
+    }
+
     .tasks .main-container .task-list li .points {
         bottom: 13px;
         left: 82%;
@@ -281,6 +285,7 @@ header {
 
     .tasks .main-container .task-menu li {
         width: 57px;
+        @include font(18);
     }
 }
 
@@ -307,7 +312,7 @@ header {
 
     .tasks .main-container .task-list li .points {
         bottom: 7px;
-        left: 87%;
+        left: 86%;
     }
 
     .tasks .main-container .task-menu {

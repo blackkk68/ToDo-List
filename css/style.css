@@ -134,6 +134,7 @@ header h1 {
 
 .tasks .main-container .task-list li {
   list-style: upper-roman;
+  font-size: 32px;
   border: 2px solid #45ace6;
   border-radius: 20px;
   padding: 15px 35px;
@@ -142,16 +143,6 @@ header h1 {
   height: auto;
   word-wrap: break-word;
   position: relative;
-}
-@media (max-width: 1920px) {
-  .tasks .main-container .task-list li {
-    font-size: calc((32 * 0.7px) + (32 * 0.3) * (100vw / 1920));
-  }
-}
-@media (min-width: 1920px) {
-  .tasks .main-container .task-list li {
-    font-size: 32px;
-  }
 }
 
 .tasks .main-container .task-list li .points {
@@ -184,7 +175,7 @@ header h1 {
   position: absolute;
   left: 101%;
   z-index: 1;
-  bottom: 0px;
+  bottom: -2px;
 }
 
 .tasks .main-container .task-menu ul {
@@ -349,19 +340,42 @@ header h1 {
   .filters .filter-container select {
     width: 120px;
   }
-
+}
+@media (max-width: 1199px) and (max-width: 1920px) {
+  .tasks .main-container .task-list li {
+    font-size: calc((32 * 0.7px) + (32 * 0.3) * (100vw / 1920));
+  }
+}
+@media (max-width: 1199px) and (min-width: 1920px) {
+  .tasks .main-container .task-list li {
+    font-size: 32px;
+  }
+}
+@media (max-width: 1199px) {
   .tasks .main-container .task-list li .points {
     bottom: 13px;
     left: 82%;
   }
-
+}
+@media (max-width: 1199px) {
   .tasks .main-container .task-menu {
     width: 72px;
     left: 100.7%;
   }
-
+}
+@media (max-width: 1199px) {
   .tasks .main-container .task-menu li {
     width: 57px;
+  }
+}
+@media (max-width: 1199px) and (max-width: 1920px) {
+  .tasks .main-container .task-menu li {
+    font-size: calc((18 * 0.7px) + (18 * 0.3) * (100vw / 1920));
+  }
+}
+@media (max-width: 1199px) and (min-width: 1920px) {
+  .tasks .main-container .task-menu li {
+    font-size: 18px;
   }
 }
 @media (max-width: 767px) {
@@ -387,7 +401,7 @@ header h1 {
 
   .tasks .main-container .task-list li .points {
     bottom: 7px;
-    left: 87%;
+    left: 86%;
   }
 
   .tasks .main-container .task-menu {
