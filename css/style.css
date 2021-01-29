@@ -113,10 +113,14 @@ header h1 {
   flex-direction: column;
   align-items: center;
   background-color: #e2f2fb;
-  margin: 0px;
-  padding: 25px 0 10px 0;
+  margin: 0;
+  padding-top: 25px;
+  padding-bottom: 10px;
 }
 
+.tasks .main-container .task-list .no-task-text {
+  margin-left: -40px;
+}
 @media (max-width: 1920px) {
   .tasks .main-container .task-list .no-task-text {
     font-size: calc((36 * 0.7px) + (36 * 0.3) * (100vw / 1920));
@@ -418,7 +422,7 @@ header h1 {
 
   .tasks .main-container .task-menu {
     width: 60px;
-    left: 100.9%;
+    left: 101%;
   }
 
   .tasks .main-container .task-menu li {
