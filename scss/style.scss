@@ -93,12 +93,14 @@ header {
     flex-direction: column;
     align-items: center;
     background-color: $mid-color;
-    margin: 0px;
-    padding: 25px 0 10px 0;
+    margin: 0;
+    padding-top: 25px;
+    padding-bottom: 10px;
 }
 
 .tasks .main-container .task-list .no-task-text {
     @include font(36);
+    margin-left: -40px;
 }
 
 .tasks .main-container .task-list li {
@@ -341,7 +343,7 @@ header {
 
     .tasks .main-container .task-menu {
         width: 60px;
-        left: 100.9%;
+        left: 101%;
     }
 
     .tasks .main-container .task-menu li {
