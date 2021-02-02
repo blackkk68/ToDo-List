@@ -132,6 +132,34 @@ function addMenu(points, newTask) {
   });
 }
 
+window.addEventListener("resize", () => {
+  let tasks = document.querySelectorAll(".task");
+  let allPoints = document.querySelectorAll(".points");
+
+  if (window.matchMedia('(max-width: 1920px)').matches && taskMenu.classList.contains("hidden")) {
+    allPoints.forEach((point) => point.style.left = "85%");
+  }
+
+  if (window.matchMedia('(max-width: 1199px)').matches && taskMenu.classList.contains("hidden")) {
+    tasks.forEach((task) => task.style.width = "55%");
+    allPoints.forEach((point) => point.style.left = "82%");
+  }
+
+  if (window.matchMedia('(max-width: 768px)').matches && taskMenu.classList.contains("hidden")) {
+    tasks.forEach((task) => task.style.width = "80%");
+    allPoints.forEach((point) => point.style.left = "86%");
+  }
+
+  if (window.matchMedia('(max-width: 480px)').matches && taskMenu.classList.contains("hidden")) {
+    tasks.forEach((task) => task.style.width = "85%");
+    allPoints.forEach((point) => point.style.left = "84%");
+  }
+
+  if (!taskMenu.classList.contains("hidden")) {
+    taskMenu.classList.add("hidden");
+  }
+})
+
 //Удаление дел
 function deleteTask(newTask) {
   let deleteButton = document.querySelector(".delete");
