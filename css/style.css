@@ -106,28 +106,29 @@ header h1 {
 .tasks .main-container {
   display: flex;
   flex-direction: column;
+  background-color: #e2f2fb;
 }
 
 .tasks .main-container .task-list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #e2f2fb;
   margin: 0;
   padding-top: 25px;
   padding-bottom: 10px;
 }
 
-.tasks .main-container .task-list .no-task-text {
-  margin-left: -40px;
+.tasks .main-container .no-task-text {
+  text-align: center;
+  margin-bottom: 0;
 }
 @media (max-width: 1920px) {
-  .tasks .main-container .task-list .no-task-text {
+  .tasks .main-container .no-task-text {
     font-size: calc((36 * 0.7px) + (36 * 0.3) * (100vw / 1920));
   }
 }
 @media (min-width: 1920px) {
-  .tasks .main-container .task-list .no-task-text {
+  .tasks .main-container .no-task-text {
     font-size: 36px;
   }
 }
@@ -195,12 +196,12 @@ header h1 {
 }
 @media (max-width: 1920px) {
   .tasks .main-container .task-menu li {
-    font-size: calc((18 * 0.7px) + (18 * 0.3) * (100vw / 1920));
+    font-size: calc((17 * 0.7px) + (17 * 0.3) * (100vw / 1920));
   }
 }
 @media (min-width: 1920px) {
   .tasks .main-container .task-menu li {
-    font-size: 18px;
+    font-size: 17px;
   }
 }
 
@@ -381,16 +382,12 @@ header h1 {
 @media (max-width: 767px) {
   body {
     margin-top: 10px;
-    width: 75%;
+    width: 70%;
     min-width: 470px;
   }
 
   .tasks .main-container .task-list {
     align-items: flex-start;
-  }
-
-  .tasks .main-container .task-list .no-task-text {
-    align-self: center;
   }
 
   .tasks .main-container .task-list li {

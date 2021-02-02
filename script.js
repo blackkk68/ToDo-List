@@ -9,7 +9,7 @@ let necessaryToDo = document.getElementById("necessary-to-do");
 let taskMenu = document.querySelector(".task-menu");
 let sorting = document.querySelector(".sorting");
 let filter = document.querySelector(".importance-filter");
-let noTaskText = taskList.querySelector(".no-task-text");
+let noTaskText = document.querySelector(".no-task-text");
 let counter = 0;
 let tasksArray = [];
 
@@ -104,20 +104,24 @@ function addMenu(points, newTask) {
   points.addEventListener("click", function () {
     taskMenu.classList.toggle("hidden");
 
+    let tasks = document.querySelectorAll(".task");
+    let allPoints = document.querySelectorAll(".points");
+
+
     if (window.matchMedia('(max-width: 768px)').matches && !taskMenu.classList.contains("hidden")) {
       newTask.style.width = "65%";
       points.style.left = "83%";
     } else if (window.matchMedia('(max-width: 768px)').matches && taskMenu.classList.contains("hidden")) {
-      newTask.style.width = "80%";
-      points.style.left = "86%";
+      tasks.forEach((task) => task.style.width = "80%");
+      allPoints.forEach((point) => point.style.left = "86%");
     }
 
     if (window.matchMedia('(max-width: 480px)').matches && !taskMenu.classList.contains("hidden")) {
       newTask.style.width = "65%";
       points.style.left = "81%";
     } else if (window.matchMedia('(max-width: 480px)').matches && taskMenu.classList.contains("hidden")) {
-      newTask.style.width = "85%";
-      points.style.left = "84%";
+      tasks.forEach((task) => task.style.width = "85%");
+      allPoints.forEach((point) => point.style.left = "84%");
     }
 
     newTask.append(taskMenu);

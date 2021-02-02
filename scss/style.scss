@@ -86,21 +86,22 @@ header {
 .tasks .main-container {
     display: flex;
     flex-direction: column;
+    background-color: $mid-color;
 }
 
 .tasks .main-container .task-list {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: $mid-color;
     margin: 0;
     padding-top: 25px;
     padding-bottom: 10px;
 }
 
-.tasks .main-container .task-list .no-task-text {
+.tasks .main-container .no-task-text {
     @include font(36);
-    margin-left: -40px;
+    text-align: center;
+    margin-bottom: 0;
 }
 
 .tasks .main-container .task-list li {
@@ -158,7 +159,7 @@ header {
     border: none;
     border-radius: 0;
     list-style: none;
-    @include font(18);
+    @include font(17);
     width: 60px;
     padding: 5px 5px 5px 10px;
     border-bottom: 1px solid $border-color;
@@ -292,16 +293,12 @@ header {
 @media (max-width: 767px) {
     body {
         margin-top: 10px;
-        width: 75%;
+        width: 70%;
         min-width: 470px;
     }
 
     .tasks .main-container .task-list {
         align-items: flex-start;
-    }
-
-    .tasks .main-container .task-list .no-task-text {
-        align-self: center;
     }
 
     .tasks .main-container .task-list li {
