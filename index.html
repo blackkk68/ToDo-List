@@ -33,9 +33,7 @@
     </section>
     <section class="tasks">
         <div class="main-container">
-            <p class="no-task-text">У вас ещё нет дел</p>
-            <ol class="task-list">
-            </ol>
+            <ol class="task-list"></ol>
             <div class="task-menu hidden">
                 <ul>
                     <li class="mark-as-done">Сделано</li>
@@ -48,11 +46,11 @@
         <form action="#" class="form">
             <fieldset>
                 <legend>Важность</legend>
-                <input name="task" type="radio" id="to-do" checked>
+                <input name="importance" type="radio" id="to-do" checked data-importance="1" value="to-do">
                 <label for="to-do">Обычное</label>
-                <input name="task" type="radio" id="better-to-do">
+                <input name="importance" type="radio" id="better-to-do" data-importance="2" value="better-to-do">
                 <label for="better-to-do">Важное</label>
-                <input name="task" type="radio" id="necessary-to-do">
+                <input name="importance" type="radio" id="necessary-to-do" data-importance="3" value="necessary-to-do">
                 <label for="necessary-to-do">Обязательное</label>
             </fieldset>
             <div>
@@ -61,7 +59,8 @@
             </div>
         </form>
     </section>
-    <script src="script.js"></script>
+    <script src="scripts/task.js"></script>
+    <script src="scripts/main.js"></script>
 </body>
 
 </html>
