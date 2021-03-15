@@ -16,7 +16,7 @@ function createNewTask(options) {
 function renderTasks(tasks) {
     const html = tasks.map(task => `<li class="${task.class}">${task.text}</li>`).join('');
 
-    taskList.innerHTML = tasks
+    taskList.innerHTML = html
         ? html
         : `<p class="no-task-text">У вас ещё нет дел</p>`;
 }

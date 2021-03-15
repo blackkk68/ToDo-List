@@ -1,5 +1,5 @@
 const form = document.querySelector(".form");
-const input = form.querySelector(".task-input").value;
+const input = form.querySelector(".task-input");
 const importanceBtns = form.querySelectorAll("[name='importance']");
 let counter = 1;
 let tasks = [];
@@ -13,15 +13,17 @@ form.addEventListener('submit', evt => {
     }
 
     let settings = {
-        text: input,
+        text: input.value,
         importance: checkedImportance.dataset.importance,
         order: counter,
         class: checkedImportance.value
-    };
+    }
+
     tasks.push(createNewTask(settings));
 
     renderTasks(tasks);
 
-
     counter++;
 })
+
+renderTasks(tasks);
