@@ -9,6 +9,7 @@ html {
     display: flex;
     justify-content: center;
     background: url(../img/bg.png) no-repeat;
+    background-color: #243225;
     font-family: 'Amatic SC', sans-serif;
     letter-spacing: 0.5px;
 }
@@ -117,7 +118,7 @@ header {
     position: relative;
 }
 
-.tasks .main-container .task-list li .points {
+.tasks .main-container .task-list li .kebab {
     position: absolute;
     left: 85%;
     padding: 20px;
@@ -130,11 +131,11 @@ header {
     background-color: #fef6db;
 }
 
-.tasks .main-container .task-list .better-to-do {
+.tasks .main-container .task-list .better-do {
     background-color: #7de2d0;
 }
 
-.tasks .main-container .task-list .necessary-to-do {
+.tasks .main-container .task-list .necessary-do {
     background-color: #e87bb5;
 }
 
@@ -274,7 +275,7 @@ header {
         @include font(32);
     }
 
-    .tasks .main-container .task-list li .points {
+    .tasks .main-container .task-list li .kebab {
         bottom: 13px;
         left: 82%;
     }
@@ -307,7 +308,7 @@ header {
         padding: 10px 25px;
     }
 
-    .tasks .main-container .task-list li .points {
+    .tasks .main-container .task-list li .kebab {
         bottom: 7px;
         left: 86%;
     }
@@ -338,7 +339,7 @@ header {
         padding: 7px 35px 7px 15px;
     }
 
-    .tasks .main-container .task-list li .points {
+    .tasks .main-container .task-list li .kebab {
         bottom: 3px;
         left: 84%;
     }

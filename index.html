@@ -22,8 +22,8 @@
             <select class="importance-filter" name="importance" id="importance">
                 <option value="all" selected>Все дела</option>
                 <option value="to-do">Обычное</option>
-                <option value="better-to-do">Важное</option>
-                <option value="necessary-to-do">Обязательное</option>
+                <option value="better-do">Важное</option>
+                <option value="necessary-do">Обязательное</option>
             </select>
             <select class="sorting" name="importance">
                 <option value="by-order" selected>По порядку</option>
@@ -33,6 +33,7 @@
     </section>
     <section class="tasks">
         <div class="main-container">
+            <p class="no-task-text">У вас ещё нет дел</p>
             <ol class="task-list"></ol>
             <div class="task-menu hidden">
                 <ul>
@@ -48,10 +49,10 @@
                 <legend>Важность</legend>
                 <input name="importance" type="radio" id="to-do" checked data-importance="1" value="to-do">
                 <label for="to-do">Обычное</label>
-                <input name="importance" type="radio" id="better-to-do" data-importance="2" value="better-to-do">
-                <label for="better-to-do">Важное</label>
-                <input name="importance" type="radio" id="necessary-to-do" data-importance="3" value="necessary-to-do">
-                <label for="necessary-to-do">Обязательное</label>
+                <input name="importance" type="radio" id="better-do" data-importance="2" value="better-do">
+                <label for="better-do">Важное</label>
+                <input name="importance" type="radio" id="necessary-do" data-importance="3" value="necessary-do">
+                <label for="necessary-do">Обязательное</label>
             </fieldset>
             <div>
                 <input type="text" name="task" class="task-input" placeholder="Текст" required>
@@ -59,8 +60,10 @@
             </div>
         </form>
     </section>
+    <script src="scripts/filters.js"></script>
     <script src="scripts/task.js"></script>
     <script src="scripts/main.js"></script>
 </body>
+
 
 </html>
