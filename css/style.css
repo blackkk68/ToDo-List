@@ -6,7 +6,7 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: url(../img/bg.png) no-repeat;
+  background: url("../img/bg.png") no-repeat;
   background-color: #243225;
   font-family: 'Amatic SC', sans-serif;
   letter-spacing: 0.5px;
@@ -45,8 +45,20 @@ header h1 {
   }
 }
 
+header .auth-btn {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 70px;
+  height: 70px;
+  background: url("../img/no-auth.svg") no-repeat;
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+}
+
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .done {
@@ -395,6 +407,171 @@ header h1 {
 .footer form div:last-child button:hover {
   background-color: #abbdd2;
   cursor: pointer;
+}
+
+.modal.open .modal-window {
+  -webkit-transform: translateY(100px);
+          transform: translateY(100px);
+}
+
+.modal.open .modal-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal.hide .modal-window {
+  -webkit-transform: translateY(-200px);
+          transform: translateY(-200px);
+}
+
+.modal.hide .modal-overlay {
+  background: rgba(0, 0, 0, 0);
+}
+
+.modal.open .modal-overlay,
+.modal.open .modal-window,
+.modal.hide .modal-overlay,
+.modal.hide .modal-window {
+  opacity: 1;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0);
+  -webkit-transition: background 0.2s ease-in;
+  transition: background 0.2s ease-in;
+}
+
+.modal-window {
+  width: 450px;
+  min-height: 417px;
+  border-radius: 5px;
+  background-color: #fff;
+  margin: 0 auto;
+  -webkit-transform: translateY(-200px);
+          transform: translateY(-200px);
+  -webkit-transition: -webkit-transform 0.2s ease-in;
+  transition: -webkit-transform 0.2s ease-in;
+  transition: transform 0.2s ease-in;
+  transition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.modal-window,
+.modal-overlay {
+  opacity: 0;
+  z-index: 100;
+}
+
+.modal-container {
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.modal-container.rotate {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.modal-window .modal-reg {
+  position: absolute;
+  top: 0;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.modal-window .modal-auth,
+.modal-window .modal-reg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+@media (max-width: 1920px) {
+  .modal-window h2 {
+    font-size: calc((42 * 0.7px) + (42 * 0.3) * (100vw / 1920));
+  }
+}
+
+@media (min-width: 1920px) {
+  .modal-window h2 {
+    font-size: 42px;
+  }
+}
+
+.modal-window .auth-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.modal-window .auth-form input {
+  height: 45px;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #000;
+}
+
+@media (max-width: 1920px) {
+  .modal-window .auth-form input {
+    font-size: calc((29 * 0.7px) + (29 * 0.3) * (100vw / 1920));
+  }
+}
+
+@media (min-width: 1920px) {
+  .modal-window .auth-form input {
+    font-size: 29px;
+  }
+}
+
+.modal-window .auth-form .submit-btn {
+  border: none;
+  margin-top: 50px;
+  background-color: #b5def5;
+  border-radius: 10px;
+}
+
+@media (max-width: 1920px) {
+  .modal-window p {
+    font-size: calc((19 * 0.7px) + (19 * 0.3) * (100vw / 1920));
+  }
+}
+
+@media (min-width: 1920px) {
+  .modal-window p {
+    font-size: 19px;
+  }
+}
+
+.modal-window p a {
+  color: black;
 }
 
 @media (max-width: 1199px) {

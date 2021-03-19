@@ -8,7 +8,7 @@ html {
     width: 100%;
     display: flex;
     justify-content: center;
-    background: url(../img/bg.png) no-repeat;
+    background: url('../img/bg.png') no-repeat;
     background-color: #243225;
     font-family: 'Amatic SC', sans-serif;
     letter-spacing: 0.5px;
@@ -28,6 +28,19 @@ header {
         @include font(50);
         text-transform: uppercase;
     }
+
+    .auth-btn {
+        position: fixed;
+        top: 30px;
+        right: 30px;
+        width: 70px;
+        height: 70px;
+        background: url('../img/no-auth.svg') no-repeat;
+        background-size: cover;
+        border: none;
+        cursor: pointer;
+    }
+
     background-color: $main-color;
     padding: 1px;
     border-top-right-radius: 35px;
@@ -35,7 +48,7 @@ header {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .done {
@@ -260,6 +273,113 @@ header {
 .footer form div:last-child button:hover {
     background-color: darken(rgb(188, 202, 219), 5%);
     cursor: pointer;
+}
+
+.modal.open .modal-window {
+    transform: translateY(100px);
+}
+
+.modal.open .modal-overlay {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal.hide .modal-window {
+    transform: translateY(-200px);
+}
+
+.modal.hide .modal-overlay {
+    background: rgba(0, 0, 0, 0);
+}
+
+.modal.open .modal-overlay,
+.modal.open .modal-window,
+.modal.hide .modal-overlay,
+.modal.hide .modal-window {
+    opacity: 1;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.2s ease-in;
+}
+
+.modal-window {
+    width: 450px;
+    min-height: 417px;
+    border-radius: 5px;
+    background-color: #fff;
+    margin: 0 auto;
+    transform: translateY(-200px);
+    transition: transform 0.2s ease-in;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-window,
+.modal-overlay {
+    opacity: 0;
+    z-index: 100;
+}
+
+.modal-container {
+    transition: transform 0.5s ease-in-out;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+.modal-container.rotate {
+    transform: rotateY(180deg);
+}
+
+.modal-window .modal-reg {
+    position: absolute;
+    top: 0;
+    transform: rotateY(180deg);
+}
+
+.modal-window .modal-auth,
+.modal-window .modal-reg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backface-visibility: hidden;
+}
+
+.modal-window h2 {
+    @include font(42);
+}
+
+.modal-window .auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-window .auth-form input {
+    height: 45px;
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid #000;
+    @include font(29);
+}
+
+.modal-window .auth-form .submit-btn {
+    border: none;
+    margin-top: 50px;
+    background-color: $main-color;
+    border-radius: 10px;
+}
+
+.modal-window p {
+    @include font(19);
+}
+
+.modal-window p a {
+    color: black;
 }
 
 @media (max-width: 1199px) {

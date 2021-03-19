@@ -42,12 +42,12 @@ function renderTasks(tasks) {
             taskMenu.markTaskAsDone(index, task, menu);
         });
     }
-    console.log(tasks);
 }
 
 const taskMenu = {
     toggleTaskMenu(menu) {
         menu.classList.toggle('hidden');
+        adaptiveTaskMenu();
     },
 
     deleteTask(index, task) {
@@ -72,6 +72,7 @@ const taskMenu = {
             } else {
                 doneBtn.textContent = "Сделано";
             }
+            adaptiveTaskMenu();
         }
     }
 }
