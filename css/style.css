@@ -45,10 +45,38 @@ header h1 {
   }
 }
 
-header .auth-btn {
+header .authentification {
   position: fixed;
   top: 30px;
   right: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header .authentification .user {
+  margin: 0;
+  margin-top: 7px;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 1920px) {
+  header .authentification .user {
+    font-size: calc((25 * 0.7px) + (25 * 0.3) * (100vw / 1920));
+  }
+}
+
+@media (min-width: 1920px) {
+  header .authentification .user {
+    font-size: 25px;
+  }
+}
+
+header .authentification .leave {
+  color: black;
+}
+
+header .authentification .auth-btn {
   width: 70px;
   height: 70px;
   background: url("../img/no-auth.svg") no-repeat;
@@ -522,7 +550,7 @@ header .auth-btn {
   }
 }
 
-.modal-window .auth-form {
+.modal-window .form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -532,7 +560,7 @@ header .auth-btn {
           flex-direction: column;
 }
 
-.modal-window .auth-form input {
+.modal-window .form input {
   height: 45px;
   width: 300px;
   border: none;
@@ -540,22 +568,23 @@ header .auth-btn {
 }
 
 @media (max-width: 1920px) {
-  .modal-window .auth-form input {
+  .modal-window .form input {
     font-size: calc((29 * 0.7px) + (29 * 0.3) * (100vw / 1920));
   }
 }
 
 @media (min-width: 1920px) {
-  .modal-window .auth-form input {
+  .modal-window .form input {
     font-size: 29px;
   }
 }
 
-.modal-window .auth-form .submit-btn {
+.modal-window .form .submit-btn {
   border: none;
   margin-top: 50px;
   background-color: #b5def5;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 @media (max-width: 1920px) {
