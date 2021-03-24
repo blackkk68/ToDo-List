@@ -1,5 +1,6 @@
 const form = document.querySelector('.form');
 const input = form.querySelector('.task-input');
+let isLogined = false;
 let userToken;
 let tasks = [];
 let counter = tasks.length;
@@ -33,21 +34,27 @@ if (localStorage.getItem('user')) {
             authBtn.style.background = 'url("../img/with-auth.svg") no-repeat';
             authBtn.style.cursor = 'default';
             authBtn.disabled = true;
+            isLogined = true;
         })
 }
 
 form.addEventListener('submit', evt => {
     evt.preventDefault();
-
-    const email = JSON.parse(localStorage.getItem('user')).email.replace(/\./g, '');
     const newTask = createNewTask(createOptions());
 
-    FetchTask.create(newTask, email, userToken)
-        .then(task => {
-            tasks.push(task);
-            renderTasks(tasks);
-            input.value = '';
-        })
+    if (isLogined) {
+        const email = JSON.parse(localStorage.getItem('user')).email.replace(/\./g, '');
+        FetchTask.create(newTask, email, userToken)
+            .then(task => {
+                tasks.push(task);
+                renderTasks(tasks);
+                input.value = '';
+            })
+    } else {
+        tasks.push(newTask);
+        renderTasks(tasks);
+        input.value = '';
+    }
 });
 
 function createOptions() {

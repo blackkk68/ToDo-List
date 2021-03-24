@@ -46,34 +46,12 @@ header h1 {
 }
 
 header .authentification {
-  position: fixed;
+  position: absolute;
   top: 30px;
   right: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-header .authentification .user {
-  margin: 0;
-  margin-top: 7px;
-  margin-bottom: 5px;
-}
-
-@media (max-width: 1920px) {
-  header .authentification .user {
-    font-size: calc((25 * 0.7px) + (25 * 0.3) * (100vw / 1920));
-  }
-}
-
-@media (min-width: 1920px) {
-  header .authentification .user {
-    font-size: 25px;
-  }
-}
-
-header .authentification .leave {
-  color: black;
 }
 
 header .authentification .auth-btn {
@@ -83,6 +61,41 @@ header .authentification .auth-btn {
   background-size: cover;
   border: none;
   cursor: pointer;
+}
+
+.account {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.account .user {
+  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 1920px) {
+  .account .user {
+    font-size: calc((25 * 0.7px) + (25 * 0.3) * (100vw / 1920));
+  }
+}
+
+@media (min-width: 1920px) {
+  .account .user {
+    font-size: 25px;
+  }
+}
+
+.account .leave {
+  color: black;
 }
 
 .hidden {
@@ -538,6 +551,23 @@ header .authentification .auth-btn {
           backface-visibility: hidden;
 }
 
+.modal-window .modal-auth .form {
+  margin-bottom: 5px;
+  gap: 5px;
+}
+
+.modal-window .cross {
+  position: absolute;
+  cursor: pointer;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  background: url("../img/cross.svg") no-repeat;
+  background-size: cover;
+  display: none;
+}
+
 @media (max-width: 1920px) {
   .modal-window h2 {
     font-size: calc((42 * 0.7px) + (42 * 0.3) * (100vw / 1920));
@@ -650,11 +680,29 @@ header .authentification .auth-btn {
   }
 }
 
+@media (max-width: 1199px) {
+  .modal-window {
+    min-height: 400px;
+  }
+}
+
 @media (max-width: 767px) {
   body {
     margin-top: 10px;
     width: 70%;
     min-width: 470px;
+  }
+  header .authentification {
+    top: 10px;
+    right: 10px;
+  }
+  header .authentification .auth-btn {
+    width: 60px;
+    height: 60px;
+  }
+  .account .user {
+    margin-top: 10px;
+    margin-bottom: 0;
   }
   .tasks .main-container .task-list {
     -webkit-box-align: start;
@@ -680,6 +728,14 @@ header .authentification .auth-btn {
     margin-left: 0px;
     padding: 3px 0 3px 10px;
   }
+  .modal-window {
+    width: 350px;
+    min-height: 390px;
+    margin-top: -70px;
+  }
+  .modal-window h2 {
+    margin-top: 20px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -687,6 +743,17 @@ header .authentification .auth-btn {
     margin-top: 0px;
     width: 100%;
     min-width: 350px;
+  }
+  header .authentification {
+    top: 5px;
+    right: 5px;
+  }
+  header .authentification .auth-btn {
+    width: 55px;
+    height: 55px;
+  }
+  .account .user {
+    margin-top: 7px;
   }
   .tasks .main-container .task-list li {
     margin-left: -10px;
@@ -709,6 +776,14 @@ header .authentification .auth-btn {
   }
   .footer form label {
     padding: 5px 10px;
+  }
+  .modal-window {
+    width: 340px;
+    min-height: 370px;
+    margin-top: -90px;
+  }
+  .modal-window .cross {
+    display: block;
   }
 }
 /*# sourceMappingURL=style.css.map */

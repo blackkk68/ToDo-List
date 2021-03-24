@@ -4,6 +4,7 @@ function createAuthModal() {
     modal.innerHTML = `
     <div class="modal-overlay" data-close="close">
         <div class="modal-window">
+        <span class="cross"></span>
             <div class="modal-container">
                 <div class="modal-auth">
                     <h2>Авторизация</h2>
@@ -118,3 +119,6 @@ regForm.addEventListener('submit', evt => {
                 })
         })
 })
+
+const cross = modalNode.querySelector('.cross');
+cross.addEventListener('click', () => modal.close());
