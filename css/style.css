@@ -519,8 +519,8 @@ header .authentification .auth-btn {
   transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: visible;
 }
 
 .modal-container.rotate {

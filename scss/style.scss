@@ -351,6 +351,7 @@ header .authentification {
     transition: transform 0.5s ease-in-out;
     transform-style: preserve-3d;
     backface-visibility: hidden;
+    -webkit-backface-visibility: visible;
 }
 
 .modal-container.rotate {
