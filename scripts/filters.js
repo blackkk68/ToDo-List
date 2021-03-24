@@ -8,7 +8,7 @@ function sortingTaks(tasks) {
         })
     } else if (sorting.value === "by-order") {
         tasks.sort((a, b) => {
-            return a.id - b.id;
+            return a.order - b.order;
         })
     }
     return tasks;
