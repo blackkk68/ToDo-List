@@ -31,9 +31,7 @@ if (localStorage.getItem('user')) {
         .then(() => {
             account.classList.remove('hidden');
             user.textContent = userName;
-            authBtn.style.background = 'url("../img/with-auth.svg")';
-            authBtn.style.cursor = 'default';
-            authBtn.disabled = true;
+            authBtn.classList.add('hidden');
             isLogined = true;
         })
 }
