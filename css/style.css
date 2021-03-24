@@ -700,10 +700,6 @@ header .authentification .auth-btn {
     width: 60px;
     height: 60px;
   }
-  .account .user {
-    margin-top: 10px;
-    margin-bottom: 0;
-  }
   .tasks .main-container .task-list {
     -webkit-box-align: start;
         -ms-flex-align: start;
@@ -743,17 +739,6 @@ header .authentification .auth-btn {
     margin-top: 0px;
     width: 100%;
     min-width: 350px;
-  }
-  header .authentification {
-    top: 5px;
-    right: 5px;
-  }
-  header .authentification .auth-btn {
-    width: 55px;
-    height: 55px;
-  }
-  .account .user {
-    margin-top: 7px;
   }
   .tasks .main-container .task-list li {
     margin-left: -10px;

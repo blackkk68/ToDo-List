@@ -471,11 +471,6 @@ header .authentification {
         }
     }
 
-    .account .user {
-        margin-top: 10px;
-        margin-bottom: 0;
-    }
-
     .tasks .main-container .task-list {
         align-items: flex-start;
     }
@@ -519,20 +514,6 @@ header .authentification {
         margin-top: 0px;
         width: 100%;
         min-width: 350px;
-    }
-
-    header .authentification {
-        top: 5px;
-        right: 5px;
-
-        .auth-btn {
-            width: 55px;
-            height: 55px;
-        }
-    }
-
-    .account .user {
-        margin-top: 7px;
     }
 
     .tasks .main-container .task-list li {
