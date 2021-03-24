@@ -88,7 +88,7 @@ signIn.addEventListener('click', evt => {
 authForm.addEventListener('submit', evt => {
     evt.preventDefault();
 
-    const email = authForm.querySelector('.email').value;
+    const email = authForm.querySelector('.email').value.toLowerCase();
     const password = authForm.querySelector('.password').value;
     authUser(email, password)
         .then((token) => {
@@ -106,7 +106,7 @@ regForm.addEventListener('submit', evt => {
     evt.preventDefault();
 
     const userName = regForm.querySelector('.name').value;
-    const email = regForm.querySelector('.email').value;
+    const email = regForm.querySelector('.email').value.toLowerCase();
     const password = regForm.querySelector('.password').value;
     regNewUser(email, password)
         .then(() => {
