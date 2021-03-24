@@ -8,6 +8,7 @@ function createAuthModal() {
             <div class="modal-container">
                 <div class="modal-auth">
                     <h2>Авторизация</h2>
+                    <p class="error hidden">Не верный логин и/или пароль</p>
                     <form class="form auth-form" action="#" method="post">
                         <input type="email" name="email" class="email" placeholder="Email" required>
                         <input type="password" name="password" class="password" placeholder="Пароль" required minlength="6">
@@ -17,6 +18,7 @@ function createAuthModal() {
                 </div>
                 <div class="modal-reg">
                     <h2>Регистрация</h2>
+                    <p class="error hidden">Не верный логин и/или пароль</p>
                     <form class="form reg-form" action="#" method="post">
                         <input type="text" name="name" class="name" placeholder="Имя" required>
                         <input type="email" name="email" class="email" placeholder="Email" required>
@@ -90,15 +92,21 @@ authForm.addEventListener('submit', evt => {
 
     const email = authForm.querySelector('.email').value.toLowerCase();
     const password = authForm.querySelector('.password').value;
+    const error = modalContainer.querySelector('.error');
     authUser(email, password)
-        .then((token) => {
-            User.getUser(token, email.replace(/\./g, ''))
-                .then(response => {
-                    const user = Object.values(response)[0];
-                    localStorage.clear();
-                    localStorage.setItem('user', JSON.stringify(user));
-                    location.reload();
-                })
+        .catch(err => console.log(err))
+        .then(token => {
+            if (token != undefined) {
+                User.getUser(token, email.replace(/\./g, ''))
+                    .then(response => {
+                        const user = Object.values(response)[0];
+                        localStorage.clear();
+                        localStorage.setItem('user', JSON.stringify(user));
+                        location.reload();
+                    })
+            } else {
+                error.classList.remove('hidden');
+            }
         });
 });
 

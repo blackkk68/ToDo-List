@@ -22,6 +22,15 @@ body {
     margin-top: 30px;
 }
 
+.hidden {
+    display: none !important;
+}
+
+.done {
+    text-decoration: line-through;
+    background-color: rgb(205, 210, 214) !important;
+}
+
 header {
     h1 {
         text-align: center;
@@ -35,7 +44,7 @@ header {
     border-top-left-radius: 35px;
 }
 
-header .authentification {
+.authentification {
     position: absolute;
     top: 30px;
     right: 30px;
@@ -68,13 +77,37 @@ header .authentification {
     }
 }
 
-.hidden {
-    display: none !important;
+.popup {
+    position: absolute;
+    top: 65px;
+    right: 92px;
 }
 
-.done {
-    text-decoration: line-through;
-    background-color: rgb(205, 210, 214) !important;
+.popup-text {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 15px 25px;
+    border-radius: 15px;
+    border-top-right-radius: 0px;
+    @include font(25);
+    cursor: pointer;
+    transform: rotate(-90deg);
+    transform-origin: right;
+    transition: all 0.2s ease-in;
+    opacity: 0;
+}
+
+.popup-text.show {
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+.popup-text.hide {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+.popup-text:hover {
+    background-color: rgb(255, 255, 255);
 }
 
 .filters {
@@ -111,7 +144,11 @@ header .authentification {
 
 .filters .filter-container select:hover {
     cursor: pointer;
-    background-color: #b8dafa;
+    box-shadow: 0 0 1px 1px $border-color;
+}
+
+.filters .filter-container select:active {
+    box-shadow: inset 0 0 1px 1px $border-color;
 }
 
 .filters .filter-container option {
@@ -252,6 +289,14 @@ header .authentification {
     background: linear-gradient(92.8deg, #9bc7f0 1.23%, #b8d8f6 88.48%);
 }
 
+.footer form label:hover {
+    box-shadow: 0 0 1px 1px $border-color;
+}
+
+.footer form label:active {
+    box-shadow: inset 0 0 1px 1px $border-color;
+}
+
 .footer form input[type='radio'] {
     display: none;
 }
@@ -269,7 +314,7 @@ header .authentification {
     width: 85%;
 }
 
-.footer form div:last-child input {
+.footer form .task-input {
     width: 300px;
     height: 25px;
     font-family: 'Amatic SC', sans-serif;
@@ -280,7 +325,15 @@ header .authentification {
     flex: 1 1;
 }
 
-.footer form div:last-child button {
+.footer form .task-input:focus {
+    box-shadow: 0 0 1px 1px $border-color;
+}
+
+.footer form .task-input:focus:invalid {
+    box-shadow: 0 0 1px 1px red;
+}
+
+.footer form .publish {
     width: 100px;
     height: 32px;
     font-family: 'Amatic SC', sans-serif;
@@ -291,9 +344,13 @@ header .authentification {
     margin-right: 2px;
 }
 
-.footer form div:last-child button:hover {
-    background-color: darken(rgb(188, 202, 219), 5%);
+.footer form .publish:hover {
+    box-shadow: 0 0 1px 1px $border-color;
     cursor: pointer;
+}
+
+.footer form .publish:active {
+    box-shadow: inset 0 0 1px 1px $border-color;
 }
 
 .modal.open .modal-window {
@@ -350,8 +407,8 @@ header .authentification {
 .modal-container {
     transition: transform 0.5s ease-in-out;
     transform-style: preserve-3d;
-    backface-visibility: hidden;
     -webkit-backface-visibility: visible;
+    -moz-backface-visibility: hidden;
 }
 
 .modal-container.rotate {
@@ -406,12 +463,30 @@ header .authentification {
     @include font(29);
 }
 
+.modal-window .form input:focus:invalid {
+    box-shadow: 0 0 1px 1px red;
+}
+
 .modal-window .form .submit-btn {
     border: none;
     margin-top: 50px;
     background-color: $main-color;
     border-radius: 10px;
     cursor: pointer;
+}
+
+.modal-window .form .submit-btn:hover {
+    box-shadow: 0 0 1px 1px darken($main-color, 10%);
+}
+
+.modal-window .form .submit-btn:active {
+    box-shadow: inset 0 0 1px 1px darken($main-color, 10%);
+}
+
+.modal-window .error {
+    color: red;
+    padding: 0;
+    margin: 0;
 }
 
 .modal-window p {
@@ -472,6 +547,11 @@ header .authentification {
         }
     }
 
+    .popup {
+        top: 40px;
+        right: 65px;
+    }
+
     .tasks .main-container .task-list {
         align-items: flex-start;
     }
@@ -515,6 +595,10 @@ header .authentification {
         margin-top: 0px;
         width: 100%;
         min-width: 350px;
+    }
+
+    .tasks .main-container {
+        background-color: transparent;
     }
 
     .tasks .main-container .task-list li {

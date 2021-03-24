@@ -1,5 +1,7 @@
 const form = document.querySelector('.form');
 const input = form.querySelector('.task-input');
+const popup = document.querySelector('.popup');
+const popupText = popup.querySelector('.popup-text');
 let isLogined = false;
 let userToken;
 let tasks = [];
@@ -74,3 +76,18 @@ function createOptions() {
 window.addEventListener('resize', () => {
     adaptiveTaskLength();
 })
+
+if (!localStorage.getItem('user')) {
+    input.addEventListener('click', () => {
+        popup.classList.remove('hidden');
+        setTimeout(() => {
+            popupText.classList.add('show');
+        }, 300);
+        popupText.addEventListener('click', () => {
+            popupText.classList.add('hide');
+            setTimeout(() => {
+                popup.classList.add('hidden');
+            }, 5000);
+        })
+    });
+}
