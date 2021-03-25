@@ -9,10 +9,36 @@ class Task {
             this.class = options.class,
             this.isDone = options.isDone
     }
-}
 
-function createNewTask(options) {
-    return new Task(options);
+    static toggleTaskMenu(menu) {
+        menu.classList.toggle('hidden');
+        adaptiveTaskMenu();
+    }
+
+    static deleteTask(index, task) {
+        const deleteBtn = task.querySelector('.delete');
+        const email = JSON.parse(localStorage.getItem('user')).email;
+        deleteBtn.onclick = function () {
+            console.log(index);
+            FetchTask.delete(email.replace(/\./g, ''), tasks[index].id, userToken)
+                .then(task.remove())
+                .then(tasks.splice(index, 1))
+                .then(tasks.length ? noTaskText.classList.add('hidden') : noTaskText.classList.remove('hidden'))
+        }
+    }
+
+    static markTaskAsDone(index, task, menu) {
+        const doneBtn = task.querySelector('.mark-as-done');
+        const email = JSON.parse(localStorage.getItem('user')).email;
+        doneBtn.onclick = function () {
+            tasks[index].isDone = tasks[index].isDone ? false : true;
+            FetchTask.patch(email.replace(/\./g, ''), tasks[index].id, userToken, tasks[index])
+                .then(task.classList.toggle("done"))
+                .then(menu.classList.add('hidden'))
+                .then(doneBtn.textContent = doneBtn.textContent === "Сделано" ? "Не сделано" : "Сделано");
+            adaptiveTaskMenu();
+        }
+    }
 }
 
 function renderTasks(tasks) {
@@ -28,7 +54,6 @@ function renderTasks(tasks) {
     </ul></div></li>`}).join('');
 
     taskList.innerHTML = html;
-
     taskList.innerHTML ? noTaskText.classList.add('hidden') : noTaskText.classList.remove('hidden');
 
     const kebabs = taskList.querySelectorAll('.kebab');
@@ -37,45 +62,9 @@ function renderTasks(tasks) {
             const task = evt.target.parentNode;
             const index = tasks.findIndex(item => item.id == task.dataset.id);
             const menu = task.querySelector('.task-menu');
-            const email = JSON.parse(localStorage.getItem('user')).email;
-            taskMenu.toggleTaskMenu(menu);
-            taskMenu.deleteTask(index, task, email);
-            taskMenu.markTaskAsDone(index, task, menu, email);
+            Task.toggleTaskMenu(menu);
+            Task.deleteTask(index, task);
+            Task.markTaskAsDone(index, task, menu);
         });
-    }
-}
-
-const taskMenu = {
-    toggleTaskMenu(menu) {
-        menu.classList.toggle('hidden');
-        adaptiveTaskMenu();
-    },
-
-    deleteTask(index, task, email) {
-        const deleteBtn = task.querySelector('.delete');
-        deleteBtn.onclick = function () {
-            task.remove();
-            FetchTask.delete(email.replace(/\./g, ''), tasks[index].id, userToken)
-                .then(tasks.splice(index, 1))
-                .then(tasks.length ? noTaskText.classList.add('hidden') : noTaskText.classList.remove('hidden'))
-        }
-    },
-
-    markTaskAsDone(index, task, menu, email) {
-        const doneBtn = task.querySelector('.mark-as-done');
-        doneBtn.onclick = function () {
-            tasks[index].isDone = tasks[index].isDone ? false : true;
-            task.classList.toggle("done");
-            menu.classList.add('hidden');
-            FetchTask.patch(email.replace(/\./g, ''), tasks[index].id, userToken, tasks[index])
-                .then(() => {
-                    if (doneBtn.textContent === "Сделано") {
-                        doneBtn.textContent = "Не сделано";
-                    } else {
-                        doneBtn.textContent = "Сделано";
-                    }
-                })
-            adaptiveTaskMenu();
-        }
     }
 }

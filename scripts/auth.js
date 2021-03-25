@@ -14,7 +14,7 @@ class FetchTask {
             })
     }
 
-    static authAndGet(token, email) {
+    static getUserTasks(token, email) {
         return fetch(`https://to-do-list-with-auth-default-rtdb.firebaseio.com/tasks/${email}.json?auth=${token}`)
             .then(response => response.json())
     }
@@ -40,11 +40,10 @@ class User {
     constructor(userName, email, password) {
         this.name = userName,
             this.email = email,
-            this.password = password,
-            this.id = `${new Date().getTime()}`
+            this.password = password
     }
 
-    static addUser(user, email) {
+    static addToBase(user, email) {
         return fetch(`https://to-do-list-with-auth-default-rtdb.firebaseio.com/users/${email}.json`, {
             method: 'POST',
             body: JSON.stringify(user),
@@ -54,44 +53,44 @@ class User {
         })
     }
 
-    static getUser(token, email) {
+    static getFromBase(token, email) {
         return fetch(`https://to-do-list-with-auth-default-rtdb.firebaseio.com/users/${email}.json?auth=${token}`, {
             method: 'GET'
         })
             .then(response => response.json())
     }
-}
 
-function authUser(email, password) {
-    const apiKey = "AIzaSyDRC6hmVP842U45qZK8XxsZahElFPHM0Zc";
-    return fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`, {
-        method: 'POST',
-        body: JSON.stringify({
-            email, password,
-            returnSecureToken: true
-        }),
-        headers: {
-            'Content-type': 'application/json'
-        }
-    })
-        .then(response => response.json())
-        .then(data => data.idToken)
-}
+    static auth(email, password) {
+        const apiKey = "AIzaSyDRC6hmVP842U45qZK8XxsZahElFPHM0Zc";
+        return fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`, {
+            method: 'POST',
+            body: JSON.stringify({
+                email, password,
+                returnSecureToken: true
+            }),
+            headers: {
+                'Content-type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(data => data.idToken)
+    }
 
-function regNewUser(email, password) {
-    const apiKey = "AIzaSyDRC6hmVP842U45qZK8XxsZahElFPHM0Zc";
-    return fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${apiKey}`, {
-        method: 'POST',
-        body: JSON.stringify({
-            email, password,
-            returnSecureToken: true
-        }),
-        headers: {
-            'Content-type': 'application/json'
-        }
-    })
-        .then(response => response.json())
-        .then(data => data.idToken)
+    static regNew(email, password) {
+        const apiKey = "AIzaSyDRC6hmVP842U45qZK8XxsZahElFPHM0Zc";
+        return fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${apiKey}`, {
+            method: 'POST',
+            body: JSON.stringify({
+                email, password,
+                returnSecureToken: true
+            }),
+            headers: {
+                'Content-type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(data => data.idToken)
+    }
 }
 
 const leave = document.querySelector('.leave');

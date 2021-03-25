@@ -1,4 +1,4 @@
-function createAuthModal() {
+function createModal() {
     const modal = document.createElement('div');
     modal.classList.add('modal', 'hidden');
     modal.innerHTML = `
@@ -34,45 +34,43 @@ function createAuthModal() {
 
     document.body.appendChild(modal);
 }
-createAuthModal();
+createModal();
 
 const authBtn = document.querySelector('.auth-btn');
-const modalNode = document.querySelector('.modal');
-const modalContainer = modalNode.querySelector('.modal-container');
-const registration = modalNode.querySelector('.registration');
-const signIn = modalNode.querySelector('.sign-in');
+const modal = document.querySelector('.modal');
+const modalContainer = modal.querySelector('.modal-container');
+const registration = modal.querySelector('.registration');
+const signIn = modal.querySelector('.sign-in');
 const regForm = modalContainer.querySelector('.reg-form');
 const authForm = modalContainer.querySelector('.auth-form');
 
-const modal = {
-    open() {
-        modalNode.classList.remove('hidden');
-        modalNode.classList.remove('hide');
+class Modal {
+    static open() {
+        modal.classList.remove('hidden');
+        modal.classList.remove('hide');
         setTimeout(() => {
-            modalNode.classList.add('open');
+            modal.classList.add('open');
         }, 20);
-    },
+    }
 
-    close() {
-        modalNode.classList.remove('open');
-        modalNode.classList.add('hide');
+    static close() {
+        modal.classList.remove('open');
+        modal.classList.add('hide');
         setTimeout(() => {
-            modalNode.classList.add('hidden');
+            modal.classList.add('hidden');
         }, 200)
-    },
+    }
 
-    delete() {
-        modalNode.remove();
+    static delete() {
+        modal.remove();
     }
 }
 
-authBtn.addEventListener('click', () => {
-    modal.open();
-});
+authBtn.addEventListener('click', () => Modal.open());
 
 document.addEventListener('click', evt => {
     if (evt.target.dataset.close) {
-        modal.close();
+        Modal.close();
     }
 });
 
@@ -93,11 +91,11 @@ authForm.addEventListener('submit', evt => {
     const email = authForm.querySelector('.email').value.toLowerCase();
     const password = authForm.querySelector('.password').value;
     const error = modalContainer.querySelector('.error');
-    authUser(email, password)
+    User.auth(email, password)
         .catch(err => console.log(err))
         .then(token => {
             if (token != undefined) {
-                User.getUser(token, email.replace(/\./g, ''))
+                User.getFromBase(token, email.replace(/\./g, ''))
                     .then(response => {
                         const user = Object.values(response)[0];
                         localStorage.clear();
@@ -116,10 +114,10 @@ regForm.addEventListener('submit', evt => {
     const userName = regForm.querySelector('.name').value;
     const email = regForm.querySelector('.email').value.toLowerCase();
     const password = regForm.querySelector('.password').value;
-    regNewUser(email, password)
+    User.regNew(email, password)
         .then(() => {
             const user = new User(userName, email, password);
-            User.addUser(user, email.replace(/\./g, ''))
+            User.addToBase(user, email.replace(/\./g, ''))
                 .then(() => {
                     localStorage.clear();
                     localStorage.setItem('user', JSON.stringify(user));
@@ -128,5 +126,5 @@ regForm.addEventListener('submit', evt => {
         })
 })
 
-const cross = modalNode.querySelector('.cross');
-cross.addEventListener('click', () => modal.close());
+const cross = modal.querySelector('.cross');
+cross.addEventListener('click', () => Modal.close());

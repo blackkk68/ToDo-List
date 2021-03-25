@@ -1,6 +1,14 @@
 const sorting = document.querySelector(".sorting");
 let importanceFilter = document.querySelector(".importance-filter");
 
+sorting.addEventListener('change', () => {
+    renderTasks(tasks);
+});
+
+importanceFilter.addEventListener('change', () => {
+    renderTasks(tasks);
+});
+
 function sortingTaks(tasks) {
     if (sorting.value === "by-importance") {
         tasks.sort((a, b) => {
@@ -13,10 +21,6 @@ function sortingTaks(tasks) {
     }
     return tasks;
 }
-
-sorting.addEventListener('change', () => {
-    renderTasks(tasks);
-});
 
 function tasksFilter(tasks) {
     for (let task of tasks) {
@@ -31,7 +35,3 @@ function tasksFilter(tasks) {
     }
     return tasks;
 }
-
-importanceFilter.addEventListener('change', () => {
-    renderTasks(tasks);
-});

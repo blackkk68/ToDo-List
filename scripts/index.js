@@ -1,11 +1,11 @@
+const popup = document.querySelector('.popup');
 const form = document.querySelector('.form');
 const input = form.querySelector('.task-input');
-const popup = document.querySelector('.popup');
-const popupText = popup.querySelector('.popup-text');
+const publish = form.querySelector('.publish');
+publish.disabled = true;
 let isLogined = false;
 let userToken;
 let tasks = [];
-let counter = tasks.length;
 
 if (localStorage.getItem('user')) {
     const email = JSON.parse(localStorage.getItem('user')).email;
@@ -16,10 +16,10 @@ if (localStorage.getItem('user')) {
     const user = account.querySelector('.user');
     const authBtn = document.querySelector('.auth-btn');
 
-    authUser(email, password)
+    User.auth(email, password)
         .then(token => {
             userToken = token;
-            return FetchTask.authAndGet(token, email.replace(/\./g, ''));
+            return FetchTask.getUserTasks(token, email.replace(/\./g, ''));
         })
         .then(response => {
             if (response) {
@@ -35,26 +35,22 @@ if (localStorage.getItem('user')) {
             user.textContent = userName;
             authBtn.classList.add('hidden');
             isLogined = true;
+            publish.disabled = false;
         })
 }
 
 form.addEventListener('submit', evt => {
     evt.preventDefault();
-    const newTask = createNewTask(createOptions());
+    const newTask = new Task(createOptions());
+    console.log('newTask: ', newTask);
 
-    if (isLogined) {
-        const email = JSON.parse(localStorage.getItem('user')).email.replace(/\./g, '');
-        FetchTask.create(newTask, email, userToken)
-            .then(task => {
-                tasks.push(task);
-                renderTasks(tasks);
-                input.value = '';
-            })
-    } else {
-        tasks.push(newTask);
-        renderTasks(tasks);
-        input.value = '';
-    }
+    const email = JSON.parse(localStorage.getItem('user')).email.replace(/\./g, '');
+    FetchTask.create(newTask, email, userToken)
+        .then(task => {
+            tasks.push(task);
+            renderTasks(tasks);
+            input.value = '';
+        })
 });
 
 function createOptions() {
@@ -67,24 +63,20 @@ function createOptions() {
     return {
         text: input.value.trim(),
         importance: Number(checkedImportance.dataset.importance),
-        order: counter++,
+        order: new Date().getTime(),
         class: `task ${checkedImportance.value}`,
         isDone: false
     }
 }
 
-window.addEventListener('resize', () => {
-    adaptiveTaskLength();
-})
-
 if (!localStorage.getItem('user')) {
     input.addEventListener('click', () => {
         popup.classList.remove('hidden');
         setTimeout(() => {
-            popupText.classList.add('show');
+            popup.classList.add('show');
         }, 300);
-        popupText.addEventListener('click', () => {
-            popupText.classList.add('hide');
+        popup.addEventListener('click', () => {
+            popup.classList.add('hide');
             setTimeout(() => {
                 popup.classList.add('hidden');
             }, 5000);

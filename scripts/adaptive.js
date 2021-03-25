@@ -51,3 +51,7 @@ function adaptiveTaskMenu() {
         }
     }
 }
+
+window.addEventListener('resize', () => {
+    adaptiveTaskLength();
+})

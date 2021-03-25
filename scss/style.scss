@@ -81,9 +81,6 @@ header {
     position: absolute;
     top: 65px;
     right: 92px;
-}
-
-.popup-text {
     background-color: rgba(255, 255, 255, 0.7);
     padding: 15px 25px;
     border-radius: 15px;
@@ -96,17 +93,17 @@ header {
     opacity: 0;
 }
 
-.popup-text.show {
+.popup.show {
     transform: rotate(0deg);
     opacity: 1;
 }
 
-.popup-text.hide {
+.popup.hide {
     opacity: 0;
     transform: rotate(90deg);
 }
 
-.popup-text:hover {
+.popup:hover {
     background-color: rgb(255, 255, 255);
 }
 
@@ -353,6 +350,11 @@ header {
     box-shadow: inset 0 0 1px 1px $border-color;
 }
 
+.footer form .publish:disabled:hover {
+    box-shadow: 0 0 0 0 $border-color;
+    cursor: auto;
+}
+
 .modal.open .modal-window {
     transform: translateY(100px);
 }
@@ -497,144 +499,4 @@ header {
     color: black;
 }
 
-@media (max-width: 1199px) {
-    body {
-        width: 550px;
-    }
-
-    .filters .filter-container select {
-        width: 120px;
-    }
-
-    .tasks .main-container .task-list li {
-        @include font(32);
-    }
-
-    .tasks .main-container .task-list li .kebab {
-        bottom: 13px;
-        left: 82%;
-    }
-
-    .tasks .main-container .task-menu {
-        width: 72px;
-        left: 100.7%;
-    }
-
-    .tasks .main-container .task-menu li {
-        width: 57px;
-        @include font(18);
-    }
-
-    .modal-window {
-        min-height: 400px;
-    }
-}
-
-@media (max-width: 767px) {
-    body {
-        margin-top: 10px;
-        width: 70%;
-        min-width: 470px;
-    }
-
-    header .authentification {
-        top: 10px;
-        right: 10px;
-
-        .auth-btn {
-            width: 60px;
-            height: 60px;
-        }
-    }
-
-    .popup {
-        top: 40px;
-        right: 65px;
-    }
-
-    .tasks .main-container .task-list {
-        align-items: flex-start;
-    }
-
-    .tasks .main-container .task-list li {
-        margin-left: 15px;
-        width: 80%;
-        padding: 10px 25px;
-    }
-
-    .tasks .main-container .task-list li .kebab {
-        bottom: 7px;
-        left: 86%;
-    }
-
-    .tasks .main-container .task-menu {
-        width: 65px;
-        left: 102%;
-    }
-
-    .tasks .main-container .task-menu li {
-        width: 55px;
-        padding: 0;
-        margin-left: 0px;
-        padding: 3px 0 3px 10px;
-    }
-
-    .modal-window {
-        width: 350px;
-        min-height: 390px;
-        margin-top: -70px;
-    }
-
-    .modal-window h2 {
-        margin-top: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        margin-top: 0px;
-        width: 100%;
-        min-width: 350px;
-    }
-
-    .tasks .main-container {
-        background-color: transparent;
-    }
-
-    .tasks .main-container .task-list li {
-        margin-left: -10px;
-        width: 85%;
-        padding: 7px 35px 7px 15px;
-    }
-
-    .tasks .main-container .task-list li .kebab {
-        bottom: 3px;
-        left: 84%;
-    }
-
-    .tasks .main-container .task-menu {
-        width: 60px;
-        left: 101%;
-    }
-
-    .tasks .main-container .task-menu li {
-        width: 50px;
-        padding: 0;
-        margin-left: 0px;
-        padding: 3px 0 3px 10px;
-    }
-
-    .footer form label {
-        padding: 5px 10px;
-    }
-
-    .modal-window {
-        width: 340px;
-        min-height: 370px;
-        margin-top: -90px;
-    }
-
-    .modal-window .cross {
-        display: block;
-    }
-}
+@import '_media.scss';
