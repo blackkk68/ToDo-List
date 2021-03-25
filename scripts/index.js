@@ -42,8 +42,6 @@ if (localStorage.getItem('user')) {
 form.addEventListener('submit', evt => {
     evt.preventDefault();
     const newTask = new Task(createOptions());
-    console.log('newTask: ', newTask);
-
     const email = JSON.parse(localStorage.getItem('user')).email.replace(/\./g, '');
     FetchTask.create(newTask, email, userToken)
         .then(task => {

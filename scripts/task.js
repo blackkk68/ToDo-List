@@ -19,7 +19,6 @@ class Task {
         const deleteBtn = task.querySelector('.delete');
         const email = JSON.parse(localStorage.getItem('user')).email;
         deleteBtn.onclick = function () {
-            console.log(index);
             FetchTask.delete(email.replace(/\./g, ''), tasks[index].id, userToken)
                 .then(task.remove())
                 .then(tasks.splice(index, 1))
