@@ -1,0 +1,24 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "todolist with auth",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blackkk68/ToDo-List.git"
+  },
+  "keywords": [
+    "todolist",
+    "js",
+    "auth"
+  ],
+  "author": "Leonov Sergey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blackkk68/ToDo-List/issues"
+  },
+  "homepage": "https://github.com/blackkk68/ToDo-List#readme"
+}
