@@ -1,4 +1,4 @@
-class FetchTask {
+export class FetchTask {
     static create(task, email, token) {
         return fetch(`https://to-do-list-with-auth-default-rtdb.firebaseio.com/tasks/${email}.json?auth=${token}`, {
             method: 'POST',
@@ -36,7 +36,7 @@ class FetchTask {
     }
 }
 
-class User {
+export class User {
     constructor(userName, email, password) {
         this.name = userName,
             this.email = email,

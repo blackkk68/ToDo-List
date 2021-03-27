@@ -1,4 +1,6 @@
-function createModal() {
+import { User } from './auth';
+
+export function createModal() {
     const modal = document.createElement('div');
     modal.classList.add('modal', 'hidden');
     modal.innerHTML = `
@@ -36,7 +38,6 @@ function createModal() {
 }
 createModal();
 
-const authBtn = document.querySelector('.auth-btn');
 const modal = document.querySelector('.modal');
 const modalContainer = modal.querySelector('.modal-container');
 const registration = modal.querySelector('.registration');
@@ -44,7 +45,7 @@ const signIn = modal.querySelector('.sign-in');
 const regForm = modalContainer.querySelector('.reg-form');
 const authForm = modalContainer.querySelector('.auth-form');
 
-class Modal {
+export class Modal {
     static open() {
         modal.classList.remove('hidden');
         modal.classList.remove('hide');
@@ -65,8 +66,6 @@ class Modal {
         modal.remove();
     }
 }
-
-authBtn.addEventListener('click', () => Modal.open());
 
 document.addEventListener('click', evt => {
     if (evt.target.dataset.close) {
@@ -97,7 +96,8 @@ authForm.addEventListener('submit', evt => {
             if (token != undefined) {
                 User.getFromBase(token, email.replace(/\./g, ''))
                     .then(response => {
-                        const user = Object.values(response)[0];
+                        let user = Object.values(response)[0];
+                        user.token = token;
                         localStorage.clear();
                         localStorage.setItem('user', JSON.stringify(user));
                         location.reload();

@@ -1,7 +1,11 @@
+import { sortingTaks, tasksFilter } from './filters';
+import { adaptiveTasks } from './adaptive';
+import { FetchTask } from './auth';
+
 const taskList = document.querySelector('.task-list');
 const noTaskText = document.querySelector('.no-task-text');
 
-class Task {
+export class Task {
     constructor(options) {
         this.text = options.text,
             this.importance = options.importance,
@@ -10,37 +14,37 @@ class Task {
             this.isDone = options.isDone
     }
 
-    static toggleTaskMenu(menu) {
+    static toggleTaskMenu(taskNode, kebab, menu) {
         menu.classList.toggle('hidden');
-        adaptiveTaskMenu();
+        adaptiveTasks(taskNode, kebab, menu);
     }
 
-    static deleteTask(index, task) {
-        const deleteBtn = task.querySelector('.delete');
+    static deleteTask(taskNode, index, tasks, userToken) {
+        const deleteBtn = taskNode.querySelector('.delete');
         const email = JSON.parse(localStorage.getItem('user')).email;
         deleteBtn.onclick = function () {
             FetchTask.delete(email.replace(/\./g, ''), tasks[index].id, userToken)
-                .then(task.remove())
+                .then(taskNode.remove())
                 .then(tasks.splice(index, 1))
                 .then(tasks.length ? noTaskText.classList.add('hidden') : noTaskText.classList.remove('hidden'))
         }
     }
 
-    static markTaskAsDone(index, task, menu) {
-        const doneBtn = task.querySelector('.mark-as-done');
+    static markTaskAsDone(taskNode, kebab, menu, task, userToken) {
+        const doneBtn = taskNode.querySelector('.mark-as-done');
         const email = JSON.parse(localStorage.getItem('user')).email;
         doneBtn.onclick = function () {
-            tasks[index].isDone = tasks[index].isDone ? false : true;
-            FetchTask.patch(email.replace(/\./g, ''), tasks[index].id, userToken, tasks[index])
-                .then(task.classList.toggle("done"))
+            task.isDone = task.isDone ? false : true;
+            FetchTask.patch(email.replace(/\./g, ''), task.id, userToken, task)
+                .then(taskNode.classList.toggle("done"))
                 .then(menu.classList.add('hidden'))
                 .then(doneBtn.textContent = doneBtn.textContent === "Сделано" ? "Не сделано" : "Сделано");
-            adaptiveTaskMenu();
+            adaptiveTasks(taskNode, kebab, menu);
         }
     }
 }
 
-function renderTasks(tasks) {
+export function renderTasks(tasks) {
     sortingTaks(tasks);
     tasksFilter(tasks);
     const html = tasks.map(task => {
@@ -58,12 +62,14 @@ function renderTasks(tasks) {
     const kebabs = taskList.querySelectorAll('.kebab');
     for (let kebab of kebabs) {
         kebab.addEventListener('click', evt => {
-            const task = evt.target.parentNode;
-            const index = tasks.findIndex(item => item.id == task.dataset.id);
-            const menu = task.querySelector('.task-menu');
-            Task.toggleTaskMenu(menu);
-            Task.deleteTask(index, task);
-            Task.markTaskAsDone(index, task, menu);
+            const taskNode = evt.target.parentNode;
+            const index = tasks.findIndex(item => item.id == taskNode.dataset.id);
+            const task = tasks[index];
+            const menu = taskNode.querySelector('.task-menu');
+            const userToken = JSON.parse(localStorage.getItem('user')).token;
+            Task.toggleTaskMenu(taskNode, kebab, menu);
+            Task.deleteTask(taskNode, index, tasks, userToken);
+            Task.markTaskAsDone(taskNode, kebab, menu, task, userToken);
         });
     }
 }

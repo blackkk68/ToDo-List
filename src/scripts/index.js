@@ -1,9 +1,16 @@
+import { renderTasks, Task } from './task';
+import { FetchTask, User } from './auth';
+import { sorting, importanceFilter } from './filters';
+import { Modal } from './modal';
+import '../styles/normalize.css';
+import '../styles/style.css';
+
+const authBtn = document.querySelector('.auth-btn');
 const popup = document.querySelector('.popup');
 const form = document.querySelector('.form');
 const input = form.querySelector('.task-input');
 const publish = form.querySelector('.publish');
 publish.disabled = true;
-let isLogined = false;
 let userToken;
 let tasks = [];
 
@@ -34,7 +41,6 @@ if (localStorage.getItem('user')) {
             account.classList.remove('hidden');
             user.textContent = userName;
             authBtn.classList.add('hidden');
-            isLogined = true;
             publish.disabled = false;
         })
 }
@@ -81,3 +87,15 @@ if (!localStorage.getItem('user')) {
         })
     });
 }
+
+authBtn.addEventListener('click', () => {
+    Modal.open();
+});
+
+sorting.addEventListener('change', () => {
+    renderTasks(tasks);
+});
+
+importanceFilter.addEventListener('change', () => {
+    renderTasks(tasks);
+});
