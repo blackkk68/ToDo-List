@@ -1,6 +1,5 @@
-import { renderTasks, Task } from './task';
+import { Task } from './task';
 import { FetchTask, User } from './auth';
-import { sorting, importanceFilter } from './filters';
 import { Modal } from './modal';
 import '../styles/normalize.css';
 import '../styles/style.css';
@@ -34,7 +33,8 @@ if (localStorage.getItem('user')) {
                     item[1].id = item[0];
                     return item[1];
                 });
-                renderTasks(tasks);
+                Task.render(tasks);
+                localStorage.setItem('tasks', JSON.stringify(tasks));
             }
         })
         .then(() => {
@@ -52,8 +52,9 @@ form.addEventListener('submit', evt => {
     FetchTask.create(newTask, email, userToken)
         .then(task => {
             tasks.push(task);
-            renderTasks(tasks);
+            Task.render(tasks);
             input.value = '';
+            localStorage.setItem('tasks', JSON.stringify(tasks));
         })
 });
 
@@ -90,12 +91,4 @@ if (!localStorage.getItem('user')) {
 
 authBtn.addEventListener('click', () => {
     Modal.open();
-});
-
-sorting.addEventListener('change', () => {
-    renderTasks(tasks);
-});
-
-importanceFilter.addEventListener('change', () => {
-    renderTasks(tasks);
 });

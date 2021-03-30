@@ -96,6 +96,6 @@ export class User {
 const leave = document.querySelector('.leave');
 leave.addEventListener('click', evt => {
     evt.preventDefault();
-    localStorage.removeItem('user');
+    localStorage.clear();
     location.reload();
 })

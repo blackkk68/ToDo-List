@@ -14,7 +14,8 @@ module.exports = {
         new HTMLWebpackPlugin({
             template: './index.html',
             inject: 'body',
-            scriptLoading: 'blocking'
+            scriptLoading: 'blocking',
+            favicon: "./favicons/favicon 96x96.png"
         }),
         new CleanWebpackPlugin()
     ],

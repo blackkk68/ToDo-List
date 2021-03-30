@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="utf-8">
     <title>Список дел</title>
-    <link type="image/png" sizes="16x16" rel="icon" href="favicons/favicon 16x16.png">
-    <link type="image/png" sizes="48x48" rel="icon" href="favicons/favicon 48x48.png">
-    <link type="image/png" sizes="96x96" rel="icon" href="favicons/favicon 96x96.png">
-    <link type="image/png" sizes="128x128" rel="icon" href="favicons/favicon 128x128.png">
+    <!-- <link type="image/png" sizes="16x16" href="favicons/favicon16x16.png">
+    <link type="image/png" sizes="48x48" href="favicons/favicon48x48.png">
+    <link type="image/png" sizes="96x96" href="favicons/favicon96x96.png">
+    <link type="image/png" sizes="128x128" href="favicons/favicon28x128.png"> -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
 </head>
@@ -28,30 +28,11 @@
         <p class="popup hidden">Зарегистрируйтесь, чтобы воспользоваться приложением!</p>
     </header>
     <section class="filters">
-        <div class="filter-container">
-            <select class="importance-filter" name="importance" id="importance">
-                <option value="all" selected>Все дела</option>
-                <option value="to-do">Обычное</option>
-                <option value="better-do">Важное</option>
-                <option value="necessary-do">Обязательное</option>
-            </select>
-            <select class="sorting" name="importance">
-                <option value="by-order" selected>По порядку</option>
-                <option value="by-importance">По важности</option>
-            </select>
-        </div>
+        <div class="filters-container"></div>
     </section>
     <section class="tasks">
-        <div class="main-container">
-            <p class="no-task-text">У вас ещё нет дел</p>
-            <ol class="task-list"></ol>
-            <div class="task-menu hidden">
-                <ul>
-                    <li class="mark-as-done">Сделано</li>
-                    <li class="delete">Удалить</li>
-                </ul>
-            </div>
-        </div>
+        <p class="no-task-text">У вас ещё нет дел</p>
+        <ol class="task-list"></ol>
     </section>
     <section class="footer">
         <form action="#" class="form">
