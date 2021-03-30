@@ -287,7 +287,11 @@ header {
                     }
 
                     &:hover {
-                        background-color: darken(rgb(188, 202, 219), 5%);
+                        background-color: darken($main-color, 10%);
+                    }
+
+                    &:active {
+                        box-shadow: inset 0 0 1px 1px $border-color;
                     }
                 }
             }
@@ -318,99 +322,99 @@ header {
     background-color: $main-color;
     border-bottom-left-radius: 35px;
     border-bottom-right-radius: 35px;
-}
 
-.footer form fieldset {
-    width: 85%;
-    display: flex;
-    gap: 5%;
-    border-radius: 20px;
-    border: 2px solid $border-color;
-}
+    fieldset {
+        width: 85%;
+        display: flex;
+        gap: 5%;
+        border-radius: 20px;
+        border: 2px solid $border-color;
+    }
 
-.footer form legend {
-    @include font(28);
-}
+    legend {
+        @include font(28);
+    }
 
-.footer form label {
-    border: 1px solid $border-color;
-    border-radius: 15px;
-    padding: 10px 15px;
-    flex: 1 1;
-    text-align: center;
-    cursor: pointer;
-    background: linear-gradient(92.8deg, #9bc7f0 1.23%, #b8d8f6 88.48%);
-    transition: 0.1s box-shadow;
-}
+    label {
+        border: 1px solid $border-color;
+        border-radius: 15px;
+        padding: 10px 15px;
+        flex: 1 1;
+        text-align: center;
+        cursor: pointer;
+        background: linear-gradient(92.8deg, #9bc7f0 1.23%, #b8d8f6 88.48%);
+        transition: 0.1s box-shadow;
 
-.footer form label:hover {
-    box-shadow: 0 0 1px 1px $border-color;
-}
+        &:hover {
+            box-shadow: 0 0 1px 1px $border-color;
+        }
 
-.footer form label:active {
-    box-shadow: inset 0 0 1px 1px $border-color;
-}
+        &:active {
+            box-shadow: inset 0 0 1px 1px $border-color;
+        }
+    }
 
-.footer form input[type='radio'] {
-    display: none;
-}
+    input[type='radio'] {
+        display: none;
 
-.footer form input[type='radio']:checked + label {
-    background: linear-gradient(90deg, #86a7d9 10%, #57b2e6 90%);
-}
+        &:checked + label {
+            background: linear-gradient(90deg, #86a7d9 10%, #57b2e6 90%);
+        }
+    }
 
-.footer form div:last-child {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 5%;
-    padding-top: 25px;
-    width: 85%;
-}
+    div:last-child {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 5%;
+        padding-top: 25px;
+        width: 85%;
+    }
 
-.footer form .task-input {
-    width: 300px;
-    height: 25px;
-    font-family: 'Amatic SC', sans-serif;
-    border-radius: 10px;
-    @include font(20);
-    padding-left: 15px;
-    border: 2px solid $border-color;
-    flex: 1 1;
-}
+    .task-input {
+        width: 300px;
+        height: 25px;
+        font-family: 'Amatic SC', sans-serif;
+        border-radius: 10px;
+        @include font(20);
+        padding-left: 15px;
+        border: 2px solid $border-color;
+        flex: 1 1;
 
-.footer form .task-input:focus {
-    box-shadow: 0 0 1px 1px $border-color;
-}
+        &:focus {
+            box-shadow: 0 0 1px 1px $border-color;
+        }
 
-.footer form .task-input:focus:invalid {
-    box-shadow: 0 0 1px 1px red;
-}
+        &:focus:invalid {
+            box-shadow: 0 0 1px 1px red;
+        }
+    }
 
-.footer form .publish {
-    width: 100px;
-    height: 32px;
-    font-family: 'Amatic SC', sans-serif;
-    @include font(20);
-    border-radius: 10px;
-    border: 2px solid $border-color;
-    background: linear-gradient(92.82deg, #7de9d6 11.52%, #41b49f 100%);
-    margin-right: 2px;
-    transition: 0.1s box-shadow;
-}
+    .publish {
+        width: 100px;
+        height: 32px;
+        font-family: 'Amatic SC', sans-serif;
+        @include font(20);
+        border-radius: 10px;
+        border: 2px solid $border-color;
+        background: linear-gradient(92.82deg, #7de9d6 11.52%, #41b49f 100%);
+        margin-right: 2px;
+        transition: 0.1s box-shadow;
 
-.footer form .publish:hover {
-    box-shadow: 0 0 1px 1px $border-color;
-    cursor: pointer;
-}
+        &:hover {
+            box-shadow: 0 0 1px 1px $border-color;
+            cursor: pointer;
+        }
 
-.footer form .publish:active {
-    box-shadow: inset 0 0 1px 1px $border-color;
-}
+        &:active {
+            box-shadow: inset 0 0 1px 1px $border-color;
+        }
 
-.footer form .publish:disabled:hover {
-    box-shadow: 0 0 0 0 $border-color;
-    cursor: auto;
+        &:disabled:hover {
+            box-shadow: 0 0 0 0 $border-color;
+            cursor: auto;
+        }
+    }
 }
 
 .modal.open .modal-window {

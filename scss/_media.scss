@@ -92,6 +92,13 @@
         margin-top: 0px;
         width: 100%;
         min-width: 350px;
+        border: none;
+        border-radius: 0;
+    }
+
+    header {
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
     }
 
     .popup {
@@ -137,8 +144,13 @@
         }
     }
 
-    .footer form label {
-        padding: 5px 10px;
+    .footer form {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+        label {
+            padding: 5px 10px;
+        }
     }
 
     .modal-window {
