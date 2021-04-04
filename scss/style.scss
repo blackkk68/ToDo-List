@@ -14,9 +14,95 @@ html {
     letter-spacing: 0.5px;
 }
 
-body {
-    border: 2px solid $border-color;
-    box-shadow: 0 0 5px 0 $border-color;
+.to-do-list-loading {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
+    .loading-circle-container {
+        width: 160px;
+        height: 160px;
+        background-color: #fff;
+        border-radius: 15px;
+        position: relative;
+        margin: -80px auto 0 auto;
+        top: 50%;
+    }
+
+    .circle {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 50%;
+        margin-top: -10px;
+        margin-left: -10px;
+        animation-name: loading;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+
+        &.n_1 {
+            left: 10%;
+            top: 50%;
+            animation-delay: 0.1s;
+        }
+
+        &.n_2 {
+            left: 22%;
+            top: 22%;
+            animation-delay: 0.3s;
+        }
+
+        &.n_3 {
+            top: 10%;
+            left: 50%;
+            animation-delay: 0.5s;
+        }
+
+        &.n_4 {
+            top: 22%;
+            left: 77%;
+            animation-delay: 0.7s;
+        }
+        &.n_5 {
+            top: 50%;
+            left: 90%;
+            animation-delay: 0.9s;
+        }
+
+        &.n_6 {
+            top: 77%;
+            left: 77%;
+            animation-delay: 1.1s;
+        }
+
+        &.n_7 {
+            top: 90%;
+            left: 50%;
+            animation-delay: 1.3s;
+        }
+
+        &.n_8 {
+            top: 77%;
+            left: 22%;
+            animation-delay: 1.5s;
+        }
+    }
+}
+
+@keyframes loading {
+    0% {
+        background-color: rgb(4, 53, 108);
+    }
+    100% {
+        background-color: rgb(255, 255, 255);
+    }
+}
+
+.to-do-list-container {
+    box-shadow: 0 0 5px 1px $border-color;
     border-radius: 35px;
     width: 600px;
     margin-top: 30px;
@@ -121,7 +207,7 @@ header {
             width: 145px;
             height: 30px;
             letter-spacing: 0.5px;
-            border: 2px solid $border-color;
+            border: 1px solid $border-color;
             border-radius: 10px;
             background: linear-gradient(92.8deg, #9bc7f0 1.23%, #b8d8f6 88.48%);
             display: flex;
@@ -227,7 +313,7 @@ header {
         li {
             list-style: upper-roman;
             @include font(32);
-            border: 2px solid $border-color;
+            border: 1px solid $border-color;
             border-radius: 20px;
             padding: 15px 35px;
             margin-bottom: 15px;
@@ -252,7 +338,7 @@ header {
             .task-menu {
                 width: 75px;
                 height: 100%;
-                border: 2px solid $border-color;
+                border: 1px solid $border-color;
                 border-radius: 15px;
                 background-color: #b8dafa;
                 position: absolute;
@@ -298,11 +384,11 @@ header {
         }
 
         .to-do {
-            background-color: #fef6db;
+            background-color: #7de2d0;
         }
 
         .better-do {
-            background-color: #7de2d0;
+            background-color: #fef6db;
         }
 
         .necessary-do {
@@ -328,7 +414,7 @@ header {
         display: flex;
         gap: 5%;
         border-radius: 20px;
-        border: 2px solid $border-color;
+        border: 1px solid $border-color;
     }
 
     legend {
@@ -378,8 +464,9 @@ header {
         border-radius: 10px;
         @include font(20);
         padding-left: 15px;
-        border: 2px solid $border-color;
+        border: 1px solid $border-color;
         flex: 1 1;
+        outline: none;
 
         &:focus {
             box-shadow: 0 0 1px 1px $border-color;
@@ -396,7 +483,7 @@ header {
         font-family: 'Amatic SC', sans-serif;
         @include font(20);
         border-radius: 10px;
-        border: 2px solid $border-color;
+        border: 1px solid $border-color;
         background: linear-gradient(92.82deg, #7de9d6 11.52%, #41b49f 100%);
         margin-right: 2px;
         transition: 0.1s box-shadow;
@@ -525,6 +612,7 @@ header {
     border: none;
     border-bottom: 1px solid #000;
     @include font(29);
+    outline: none;
 }
 
 .modal-window .form input:focus:invalid {

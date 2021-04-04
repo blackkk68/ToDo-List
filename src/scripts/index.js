@@ -4,6 +4,8 @@ import { Modal } from './modal';
 import '../styles/normalize.css';
 import '../styles/style.css';
 
+const loading = document.querySelector('.to-do-list-loading');
+const page = document.querySelector('.to-do-list-container');
 const authBtn = document.querySelector('.auth-btn');
 const popup = document.querySelector('.popup');
 const form = document.querySelector('.form');
@@ -42,7 +44,12 @@ if (localStorage.getItem('user')) {
             user.textContent = userName;
             authBtn.classList.add('hidden');
             publish.disabled = false;
+            loading.remove();
+            page.classList.remove('hidden');
         })
+} else {
+    loading.remove();
+    page.classList.remove('hidden');
 }
 
 form.addEventListener('submit', evt => {

@@ -13,7 +13,7 @@ module.exports = {
     plugins: [
         new HTMLWebpackPlugin({
             template: './index.html',
-            inject: 'body',
+            inject: 'head',
             scriptLoading: 'blocking',
             favicon: "./favicons/favicon 96x96.png"
         }),
