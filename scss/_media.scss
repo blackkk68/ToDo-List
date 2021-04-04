@@ -1,5 +1,5 @@
 @media (max-width: 1199px) {
-    body {
+    .to-do-list-container {
         width: 550px;
     }
 
@@ -30,7 +30,7 @@
 }
 
 @media (max-width: 767px) {
-    body {
+    .to-do-list-container {
         margin-top: 10px;
         width: 70%;
         min-width: 470px;
@@ -88,7 +88,7 @@
 }
 
 @media (max-width: 480px) {
-    body {
+    .to-do-list-container {
         margin-top: 0px;
         width: 100%;
         min-width: 350px;
