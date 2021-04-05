@@ -12,7 +12,6 @@ const form = document.querySelector('.form');
 const input = form.querySelector('.task-input');
 const publish = form.querySelector('.publish');
 publish.disabled = true;
-let userToken;
 let tasks = [];
 
 if (localStorage.getItem('user')) {
@@ -26,7 +25,9 @@ if (localStorage.getItem('user')) {
 
     User.auth(email, password)
         .then(token => {
-            userToken = token;
+            let user = JSON.parse(localStorage.getItem('user'));
+            user.token = token;
+            localStorage.setItem('user', JSON.stringify(user));
             return FetchTask.getUserTasks(token, email.replace(/\./g, ''));
         })
         .then(response => {
@@ -56,6 +57,7 @@ form.addEventListener('submit', evt => {
     evt.preventDefault();
     const newTask = new Task(createOptions());
     const email = JSON.parse(localStorage.getItem('user')).email.replace(/\./g, '');
+    const userToken = JSON.parse(localStorage.getItem('user')).token;
     FetchTask.create(newTask, email, userToken)
         .then(task => {
             tasks.push(task);

@@ -10,9 +10,9 @@ export function adaptiveTasks(task, taskMenu) {
     }
 
     if (window.matchMedia('(max-width: 480px)').matches && !taskMenu.classList.contains('hidden')) {
-        task.style.width = '65%';
+        task.style.width = '64%';
     } else if (window.matchMedia('(max-width: 480px)').matches && taskMenu.classList.contains('hidden')) {
-        task.style.width = '85%';
+        task.style.width = '84%';
     }
 }
 

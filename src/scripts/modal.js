@@ -97,6 +97,7 @@ authForm.addEventListener('submit', evt => {
                 User.getFromBase(token, email.replace(/\./g, ''))
                     .then(response => {
                         let user = Object.values(response)[0];
+                        console.log('user: ', user);
                         user.token = token;
                         localStorage.clear();
                         localStorage.setItem('user', JSON.stringify(user));

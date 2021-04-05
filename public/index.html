@@ -1,1 +1,67 @@
-<!doctype html><html lang="ru"><head><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta charset="utf-8"><title>Список дел</title><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet"><link rel="icon" href="favicon 96x96.png"></head><body><div class="to-do-list-loading"><div class="loading-circle-container"><div class="circle n_1"></div><div class="circle n_2"></div><div class="circle n_3"></div><div class="circle n_4"></div><div class="circle n_5"></div><div class="circle n_6"></div><div class="circle n_7"></div><div class="circle n_8"></div></div></div><div class="to-do-list-container hidden"><header><div class="header-container"><h1>Список дел</h1></div><div class="authentification"><div class="account hidden"><p class="user"></p><a class="leave" href="#">Выйти</a></div><button type="button" class="auth-btn"></button></div><p class="popup hidden">Зарегистрируйтесь, чтобы воспользоваться приложением!</p></header><section class="filters"><div class="filters-container"></div></section><section class="tasks"><p class="no-task-text">У вас ещё нет дел</p><ol class="task-list"></ol></section><section class="footer"><form action="#" class="form"><fieldset><legend>Важность</legend><input name="importance" type="radio" id="to-do" checked="checked" data-importance="1" value="to-do"> <label for="to-do">Обычное</label> <input name="importance" type="radio" id="better-do" data-importance="2" value="better-do"> <label for="better-do">Важное</label> <input name="importance" type="radio" id="necessary-do" data-importance="3" value="necessary-do"> <label for="necessary-do">Обязательное</label></fieldset><div><input name="task" class="task-input" placeholder="Текст" required> <button type="submit" class="publish">Записать</button></div></form></section></div><script src="bundle.4a3e6e1720f5b0ffb9a2.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <title>Список дел</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon 96x96.png"></head>
+
+<body>
+    <div class="to-do-list-loading">
+        <div class="loading-circle-container">
+            <div class="circle n_1"></div>
+            <div class="circle n_2"></div>
+            <div class="circle n_3"></div>
+            <div class="circle n_4"></div>
+            <div class="circle n_5"></div>
+            <div class="circle n_6"></div>
+            <div class="circle n_7"></div>
+            <div class="circle n_8"></div>
+        </div>
+    </div>
+    <div class="to-do-list-container hidden">
+        <header>
+            <div class="header-container">
+                <h1>Список дел</h1>
+            </div>
+            <div class="authentification">
+                <div class="account hidden">
+                    <p class="user"></p>
+                    <a class="leave" href="#">Выйти</a>
+                </div>
+                <button type="button" class="auth-btn"></button>
+            </div>
+            <p class="popup hidden">Зарегистрируйтесь, чтобы воспользоваться приложением!</p>
+        </header>
+        <section class="filters">
+            <div class="filters-container"></div>
+        </section>
+        <section class="tasks">
+            <p class="no-task-text">У вас ещё нет дел</p>
+            <ol class="task-list"></ol>
+        </section>
+        <section class="footer">
+            <form action="#" class="form">
+                <fieldset>
+                    <legend>Важность</legend>
+                    <input name="importance" type="radio" id="to-do" checked data-importance="1" value="to-do">
+                    <label for="to-do">Обычное</label>
+                    <input name="importance" type="radio" id="better-do" data-importance="2" value="better-do">
+                    <label for="better-do">Важное</label>
+                    <input name="importance" type="radio" id="necessary-do" data-importance="3" value="necessary-do">
+                    <label for="necessary-do">Обязательное</label>
+                </fieldset>
+                <div>
+                    <input type="text" name="task" class="task-input" placeholder="Текст" required>
+                    <button type="submit" class="publish">Записать</button>
+                </div>
+            </form>
+        </section>
+    </div>
+<script src="bundle.a0413390e120f1245729.js"></script></body>
+
+
+</html>

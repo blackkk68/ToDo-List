@@ -106,7 +106,7 @@ body {
 }
 
 .to-do-list-container {
-    margin: 30px auto 0 auto;
+    margin: 30px auto 30px auto;
     box-shadow: 0 0 5px 1px $border-color;
     border-radius: 35px;
     width: 600px;
@@ -341,7 +341,6 @@ header {
 
             .task-menu {
                 width: 75px;
-                height: 100%;
                 border: 1px solid $border-color;
                 border-radius: 15px;
                 background-color: #b8dafa;
