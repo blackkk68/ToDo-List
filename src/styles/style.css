@@ -401,6 +401,10 @@ header h1 {
   transition: 0.2s background-color;
 }
 
+.filters .filters-container .options li.current {
+  background-color: #88caef;
+}
+
 .filters .filters-container .options li:hover {
   background-color: #88caef;
 }

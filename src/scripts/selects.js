@@ -10,7 +10,7 @@ class Select {
 
     render() {
         const filters = document.querySelector('.filters-container');
-        const optionsHtml = this.options.map(item => `<li>${item}</li>`);
+        const optionsHtml = this.options.map(item => `<li class="option">${item}</li>`);
         const html = `
         <div class="${this.selectType}">
             <div class="select">

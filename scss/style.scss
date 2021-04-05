@@ -279,6 +279,10 @@ header {
                 width: 145px;
                 transition: 0.2s background-color;
 
+                &.current {
+                    background-color: darken($main-color, 10%);
+                }
+
                 &:hover {
                     background-color: darken($main-color, 10%);
                 }

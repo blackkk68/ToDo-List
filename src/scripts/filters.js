@@ -6,17 +6,32 @@ const importanceFilter = document.querySelector(".importance-filter");
 const filterSelect = importanceFilter.querySelector('.select');
 filterSelect.addEventListener('click', () => {
     toggleSelect(filter, importanceFilter);
+    hilightCurrentOption(filterSelect);
 })
 
 const sortingSelect = sortingFilter.querySelector('.select');
 sortingSelect.addEventListener('click', () => {
     toggleSelect(sorting, sortingFilter);
+    hilightCurrentOption(sortingSelect);
 })
 
 function toggleSelect(selectObj, selectNode) {
     const selectArrow = selectNode.querySelector('.select-arrow');
     const options = selectNode.querySelector('.options');
     options.classList.contains('open') ? selectObj.close(options, selectArrow) : selectObj.open(options, selectArrow);
+}
+
+function hilightCurrentOption(select) {
+    const filter = select.parentNode;
+    const options = filter.querySelectorAll('.option');
+    const input = filter.querySelector('.input');
+
+    options.forEach((option) => {
+        option.classList.remove('current');
+        if (option.textContent === input.textContent) {
+            option.classList.add('current');
+        }
+    })
 }
 
 window.addEventListener('click', () => {
