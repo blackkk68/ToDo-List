@@ -383,7 +383,7 @@ header {
                     }
 
                     &:hover {
-                        background-color: darken($main-color, 10%);
+                        background: darken($main-color, 10%);
                     }
 
                     &:active {

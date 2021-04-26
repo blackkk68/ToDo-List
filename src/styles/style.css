@@ -558,7 +558,7 @@ header h1 {
 }
 
 .tasks .task-list li .task-menu li:hover {
-  background-color: #88caef;
+  background: #88caef;
 }
 
 .tasks .task-list li .task-menu li:active {
