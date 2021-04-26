@@ -12,7 +12,6 @@ const form = document.querySelector('.form');
 const input = form.querySelector('.task-input');
 const publish = form.querySelector('.publish');
 publish.disabled = true;
-let tasks = [];
 
 if (localStorage.getItem('user')) {
     const email = JSON.parse(localStorage.getItem('user')).email;
@@ -32,7 +31,7 @@ if (localStorage.getItem('user')) {
         })
         .then(response => {
             if (response) {
-                tasks = Object.entries(response).map(item => {
+                const tasks = Object.entries(response).map(item => {
                     item[1].id = item[0];
                     return item[1];
                 });
@@ -60,6 +59,7 @@ form.addEventListener('submit', evt => {
     const userToken = JSON.parse(localStorage.getItem('user')).token;
     FetchTask.create(newTask, email, userToken)
         .then(task => {
+            const tasks = JSON.parse(localStorage.getItem('tasks'));
             tasks.push(task);
             Task.render(tasks);
             input.value = '';

@@ -355,11 +355,13 @@ header {
                 padding: 0;
                 margin: 0;
                 overflow: hidden;
-                transform: scale(0);
-                transition: transform 0.2s ease-in;
+                transform: scale(0.9);
+                opacity: 0;
+                transition: opacity 0.2s ease-in, transform 0.2s ease-in;
 
                 &.open {
                     transform: scale(1);
+                    opacity: 1;
                 }
 
                 li {
