@@ -14,6 +14,7 @@ html {
 
 body {
   width: 100%;
+  display: block !important;
 }
 
 .to-do-list-loading {
